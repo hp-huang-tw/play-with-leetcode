@@ -15,7 +15,6 @@ class Solution {
                 int tmpPositive = countPositive;
                 countPositive = (countNegative == 0) ? 0 : (countNegative + 1);
                 countNegative = tmpPositive+1;
-               
             }
             
             res=Math.max(res, countPositive);
