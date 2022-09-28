@@ -1,37 +1,35 @@
 class Solution {
     
     private int[] prices;
-    private int[][] cache;
+    
+    private int[][] mem;
     
     public int maxProfit(int[] prices) {
-        this.prices = prices;
-        cache = new int[prices.length][3];        
-        return dfs(0, 0);
+        this.prices=prices;
+        mem = new int[prices.length][2];
+        return calcMProfit(0, 0);
     }
     
-    
-    private int dfs(int i, int status) {
-        
-        if (i ==  prices.length)
+    // dfs: O(n), O(n). with memorization
+    // action: buy=0, sell=1
+    int calcMProfit(int i, int action){
+        if(i >= prices.length){
             return 0;
-        
-        if (cache[i][status] !=0)
-            return cache[i][status];
-        
-        int buyOrSell = 0;
-
-        if (status==0) {
-            buyOrSell = dfs(i+1, 1) - prices[i];
-        } else if (status==1) {
-            buyOrSell = dfs(i+1, 2) + prices[i];
-        } else {
-            buyOrSell = dfs(i+1, 0);
         }
         
-        int coolDown = dfs(i+1, status);
+        if (mem[i][action] != 0) return mem[i][action];
         
-        cache[i][status] = Math.max(buyOrSell, coolDown);
+        int profit=0;
+        int cooldown = calcMProfit(i+1, action); 
+        if (action == 0) { // buy
+            int buy = -prices[i] + calcMProfit(i+1, action+1);
+            profit = Math.max(buy, cooldown);
+        } else { // sell
+            int sell = prices[i] + calcMProfit(i+2, action-1);
+            profit = Math.max(sell, cooldown);
+        }
         
-        return cache[i][status];
+        mem[i][action]=profit;
+        return profit;
     }
 }
