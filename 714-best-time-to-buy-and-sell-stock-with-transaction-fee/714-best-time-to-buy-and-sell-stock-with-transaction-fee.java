@@ -6,7 +6,7 @@ class Solution {
     
     private int[][] mem;
     
-    public int maxProfit(int[] prices, int fee) {
+    public int maxProfit_(int[] prices, int fee) {
         int cash = 0, hold = -prices[0];
         for (int i = 1; i < prices.length; i++) {
             cash = Math.max(cash, hold + prices[i] - fee);
@@ -15,7 +15,23 @@ class Solution {
         return cash;
     }
     
-    public int maxProfit_withMem(int[] prices, int fee) {
+    // Greedy Algo
+    public int maxProfit(int[] prices, int fee) {
+        int lowPrice = prices[0];
+        int totalProfit = 0;
+        
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < lowPrice) { // buy lowest
+                lowPrice = prices[i];
+            } else if (prices[i] > lowPrice + fee) { // sell highest
+                totalProfit += prices[i] - lowPrice - fee;
+                lowPrice = prices[i] - fee; // should buy lower than sellPrice - fee
+            }
+        }
+        return totalProfit;
+    }
+    
+    public int maxProfit_recusionWithMem(int[] prices, int fee) {
         
         this.prices = prices;
         this.fee = fee;
