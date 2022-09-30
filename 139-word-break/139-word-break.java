@@ -3,6 +3,7 @@ class Solution {
         return bottomUp(s, wordDict);
     }
     
+    // O(n^3), O(n)
     private boolean topDown(String s, List<String> wordDict) {
         // s = "leetcode", wordDict = ["leet","code"]
         // dp  TFFFTFFFT  
@@ -22,10 +23,11 @@ class Solution {
         return dp[dp.length-1];
     }
     
+    // O(n^3), O(n)
     private boolean bottomUp(String s, List<String> wordDict) {
         // s = "leetcode", wordDict = ["leet","code"]
-        // dp          T
-        // i =        7
+        // dp  TFFFTFFFT
+        // i = 0   45 7
         
         int strLength = s.length();
         boolean[] dp = new boolean[strLength + 1];
@@ -34,7 +36,7 @@ class Solution {
         for (int i = strLength-1; i > -1;  i--) {
             for (String word : wordDict) {
                 int wordLength = word.length();
-                if (i+wordLength <= strLength && s.substring(i, i+wordLength).equals(word)) {
+                if (i + wordLength <= strLength && s.substring(i, i+wordLength).equals(word)) {
                     dp[i] = dp[i+wordLength];
                 }
                 if (dp[i]) break;
