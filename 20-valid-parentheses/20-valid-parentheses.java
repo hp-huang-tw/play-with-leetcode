@@ -10,12 +10,10 @@ class Solution {
             Character c = s.charAt(i);
             if (parentheses.containsKey(c)) {
                 stack.push(c);
-            } else if (!stack.isEmpty()) {
-                Character p = stack.peek();
-                if (c != parentheses.get(p)) return false;
-                else stack.pop();
-            } else {
+            } else if (stack.isEmpty() || c != parentheses.get(stack.peek())) {
                 return false;
+            } else {
+                stack.pop();
             }
         }
         
