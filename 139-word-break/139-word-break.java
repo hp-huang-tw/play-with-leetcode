@@ -13,6 +13,7 @@ class Solution {
                 if (dp[j]) {
                     if (wordDict.contains(s.substring(j, i))) {
                         dp[i] = true;
+                        break;
                     }
                 }
             }
