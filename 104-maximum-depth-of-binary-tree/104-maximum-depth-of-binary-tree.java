@@ -15,7 +15,31 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        return bfs(root);
+        return iterativeDfs(root);
+    }
+    
+    private int iterativeDfs(TreeNode root) {
+        if (root==null) return 0;
+        int maxDepth = 0;
+        
+        Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
+        stack.push(new Pair(root, 1));
+        
+        while (!stack.isEmpty()) {
+            Pair<TreeNode, Integer> pair = stack.pop();
+            TreeNode node = pair.getKey();
+            int depth = pair.getValue();
+            if (node.left!=null) {
+                stack.push(new Pair(node.left, depth+1));
+            }
+            
+            if (node.right!=null) {
+                stack.push(new Pair(node.right, depth+1));
+            }
+            maxDepth = Math.max(maxDepth, depth);
+        }
+        
+        return maxDepth;
     }
     
     private int bfs(TreeNode root) {
@@ -42,9 +66,9 @@ class Solution {
         return level;
     }
     
-    private int dfs(TreeNode root) {
+    private int recursiveDfs(TreeNode root) {
         if (root==null) return 0;
-        return 1+Math.max(dfs(root.left), dfs(root.right));
-        
+        return 1+Math.max(recursiveDfs(root.left),
+                          recursiveDfs(root.right));
     }
 }
