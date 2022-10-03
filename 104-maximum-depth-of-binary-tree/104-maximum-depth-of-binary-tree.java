@@ -15,7 +15,7 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        return iterativeDfs(root);
+        return recursiveDfs(root);
     }
     
     private int iterativeDfs(TreeNode root) {
