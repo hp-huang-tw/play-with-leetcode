@@ -33,6 +33,8 @@ class Solution {
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
     
+    // time: O(V+E) i.e. O(p+n)
+    // space: O(N)
     private boolean dfs(int course, HashMap<Integer, List<Integer>> prereqMap,
                     HashMap<Integer, STATUS> visitMap, List<Integer> result) {
         STATUS visitStatus = visitMap.get(course);
