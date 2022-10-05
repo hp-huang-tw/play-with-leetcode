@@ -26,7 +26,9 @@ class Solution {
         }
         return numOfIslands;
     }
-    
+
+    // time: O(n x m)
+    // space: O(min(n, m))
     private void bfs(int row, int col) {
         Pair<Integer, Integer> currentPosition = new Pair(row, col);
         
@@ -35,7 +37,7 @@ class Solution {
         visited.add(currentPosition);
         
         while (!q.isEmpty()) {
-            Pair<Integer, Integer> position = q.poll();
+            Pair<Integer, Integer> position = q.pollFirst();  // poollLast() is dfs solution
             
             List<Pair<Integer, Integer>> directions = 
                 List.of(new Pair(1, 0), new Pair(-1, 0), new Pair(0, 1), new Pair(0, -1));
@@ -46,6 +48,7 @@ class Solution {
                 int nextCol = position.getValue() + direction.getValue();
                 Pair<Integer, Integer> nextPosition = new Pair(nextRow, nextCol);
                 
+                // expand current island
                 // check not out of bound, not visit yet.
                 if (-1 < nextRow && nextRow < rowLen &&  -1 < nextCol && nextCol < colLen 
                    && !visited.contains(nextPosition) 
