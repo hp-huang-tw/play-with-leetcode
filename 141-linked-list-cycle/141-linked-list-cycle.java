@@ -11,7 +11,21 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        return hashSet(head);
+        return twoPointer(head);
+    }
+    
+    // Floyd's Algorithm (Tortoise and Hare Algorithm)
+    // time: O(n), space: O(1)
+    private boolean twoPointer(ListNode head) {
+        ListNode slow = head, fast = head;
+        
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) return true;
+        }
+        
+        return false;
     }
     
     // time: O(n), space: O(n)
