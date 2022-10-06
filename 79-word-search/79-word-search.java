@@ -19,14 +19,14 @@ class Solution {
         
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                if (isHit(r, c, 0)) return true;
+                if (search(r, c, 0)) return true;
             }
         }
         return false;
     }
     
     // time: O(r*c*4^n)
-    private boolean isHit(int r, int c, int indexOfWord) {
+    private boolean search(int r, int c, int indexOfWord) {
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         
         if (indexOfWord >= word.length()) return true;
@@ -36,7 +36,7 @@ class Solution {
         
         hit[r][c] = true;
         for (int[] dir:directions) {
-            if (isHit(r + dir[0], c + dir[1], indexOfWord + 1)) return true;
+            if (search(r + dir[0], c + dir[1], indexOfWord + 1)) return true;
         }
         hit[r][c] = false;
         
