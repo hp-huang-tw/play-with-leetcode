@@ -6,6 +6,8 @@ class Solution {
     
     private int colLen=0;
     
+    // time: o(m*n)
+    // space: o(m*n)
     public List<List<Integer>> pacificAtlantic(int[][] heights) {
         this.heights = heights;
         rowLen = heights.length;
