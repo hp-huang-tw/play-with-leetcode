@@ -72,14 +72,10 @@ class Solution {
         //System.out.println("add");
         ocean[row][col] = true;
         
-        dfs(row + 1, col, ocean, currentHeghts);
-        //System.out.println("down");
-        dfs(row - 1, col, ocean, currentHeghts);
-        //System.out.println("up");
-        dfs(row, col + 1, ocean, currentHeghts);
-        //System.out.println("right");
-        dfs(row, col - 1, ocean, currentHeghts);
-        //System.out.println("left");
+        int[][] directions = {{0,1}, {0,-1}, {1,0}, {-1,0}};
+        for (int[] dir : directions) {
+             dfs(row + dir[0], col + dir[1], ocean, currentHeghts);
+        }
     }
 }
 
