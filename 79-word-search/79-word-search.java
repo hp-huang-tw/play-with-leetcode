@@ -29,7 +29,7 @@ class Solution {
     private boolean search(int r, int c, int indexOfWord) {
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         
-        if (indexOfWord >= word.length()) return true;
+        if (indexOfWord == word.length()) return true;
         
         if (r < 0 || r >= rows || c < 0 || c >= cols || hit[r][c] || 
             board[r][c] != word.charAt(indexOfWord)) return false;
