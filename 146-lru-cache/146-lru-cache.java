@@ -33,9 +33,7 @@ class LRUCache {
     public int get(int key) {
         if (map.containsKey(key)) {
             Node node = map.get(key);
-            // moveToRight = remove then insert
-            remove(node);
-            insert(node);
+            moveToFront(node);
             return node.value;
         }
         return -1;
@@ -47,14 +45,14 @@ class LRUCache {
             remove(map.get(key));
         }
         
+        // insert new node
         Node node = new Node(key, value);
         map.put(key, node);
         insert(node);
         
         // remove from lruNode list and amp if the nums of keys is exceeded
         if (map.size() > capacity) {
-            Node lruNode = leastRecentUsed.next;
-            remove(lruNode);
+            Node lruNode = removeLruNode();
             map.remove(lruNode.key);
         }
     }
@@ -77,6 +75,17 @@ class LRUCache {
         nodeNext.prev = node;   
         node.prev = nodePrev;
         node.next = nodeNext;
+    }
+    
+    private void moveToFront(Node node) {
+        remove(node);
+        insert(node);
+    }
+    
+    private Node removeLruNode() {
+        Node lruNode = leastRecentUsed.next;
+        remove(lruNode);
+        return lruNode;
     }
 }
 
