@@ -25,6 +25,7 @@ class Solution {
         return false;
     }
     
+    // time: O(r*c*4^n)
     private boolean isHit(int r, int c, int indexOfWord) {
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         
