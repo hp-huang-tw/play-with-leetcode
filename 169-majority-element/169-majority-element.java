@@ -1,13 +1,28 @@
 class Solution {
     
     public int majorityElement(int[] nums) {
-       return hashMap(nums);
+       return boyerMore(nums);
     }
     
     // sort: O(n), O(1)
     public int sort(int[] nums) {
         Arrays.sort(nums);
         return nums[nums.length/2];
+    }
+    
+    // Boyer More Algo: O(n), O(1)
+    public int boyerMore(int[] nums) {
+        int count = 0;
+        int res = 0;
+        
+        for (int n: nums) {
+            if (count == 0) {
+                res = n;
+            }
+            count += (res == n) ? 1: -1;
+        }
+        
+        return res;
     }
     
     // HashMap: O(n), O(n)
