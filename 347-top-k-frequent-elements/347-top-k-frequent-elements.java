@@ -1,4 +1,7 @@
 class Solution {
+    
+    // heap: O(n long(n))
+    // time: O(n)
     public int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> numCountMap = new HashMap<Integer, Integer>();
         
