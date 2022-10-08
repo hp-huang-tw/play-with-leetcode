@@ -16,7 +16,7 @@ class Solution {
     private void helper(int offset, List<Integer> subsets) {
         res.add(new ArrayList<Integer>(subsets));
         for (int i = offset; i < nums.length; i++) {
-            if (i> offset && nums[i] == nums[i-1]) continue;
+            if (i > offset && nums[i] == nums[i-1]) continue;
             int num = nums[i];
             subsets.add(num);
             helper(i + 1, subsets);
