@@ -1,10 +1,10 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        return sort(s, t);
+        return counter(s, t);
     }
     
     // TC: O(s+t) -> O(n)
-    // SC: O(s+t)
+    // SC: O(s+t) -> O(n)
     private boolean hashMap(String s, String t) {
         if (s.length() != t.length()) return false;
         
@@ -27,5 +27,24 @@ class Solution {
         Arrays.sort(cs);
         Arrays.sort(ct);
         return Arrays.equals(cs, ct);
+    }
+    
+    private boolean counter(String s, String t) {
+        if (s.length() != t.length()) return false;
+        
+        int[] countS = new int[26];
+        int[] countT = new int[26];
+        
+        for (int i = 0; i < s.length(); i++) {
+            countS[s.charAt(i) - 'a']++;
+            countT[t.charAt(i) - 'a']++;
+        }
+        
+        for (int i = 0; i < 26; i++) {
+            if (countS[i] != countT[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
