@@ -1,9 +1,10 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        return hashMap(s, t);
+        return sort(s, t);
     }
     
-    // O(s+t) -> O(n)
+    // TC: O(s+t) -> O(n)
+    // SC: O(s+t)
     private boolean hashMap(String s, String t) {
         if (s.length() != t.length()) return false;
         
@@ -16,5 +17,15 @@ class Solution {
         }
         
         return mapS.equals(mapT);
+    }
+    
+    // TC: O(nlog(n)) or O(n^2)
+    // SC: O(1), or O(n)
+    private boolean sort(String s, String t) {
+        char[] cs = s.toCharArray();
+        char[] ct = t.toCharArray();
+        Arrays.sort(cs);
+        Arrays.sort(ct);
+        return Arrays.equals(cs, ct);
     }
 }
