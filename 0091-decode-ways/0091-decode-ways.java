@@ -1,7 +1,6 @@
 class Solution {
     public int numDecodings(String s) {
         return dfs(0, s, new int[s.length()]);
-        
     }
     
     // O(n)
