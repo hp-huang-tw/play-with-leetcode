@@ -1,16 +1,11 @@
 class Solution {
-    private int[] dp;
-    private String s;
     public int numDecodings(String s) {
-        this.s = s;
-        int len = s.length();
-        dp = new int[len];
-        dp[len - 1] = 1;
-        return dfs(0);
+        return dfs(0, s, new int[s.length()]);
         
     }
     
-    private int dfs(int i) {
+    // O(n)
+    private int dfs(int i, String s, int[] dp) {
         int strLen = s.length();
         if(i == strLen) return 1;
         
@@ -22,15 +17,13 @@ class Solution {
             return dp[i];
         }
         
-        int res = dfs(i+1);
+        dp[i] = dfs(i+1, s, dp);
         
         if (i + 1 <  strLen && 
             (s.charAt(i) == '1' || s.charAt(i) == '2' && s.charAt(i+1) >= '0' &&
              s.charAt(i+1) <= '6')) {
-            res += dfs(i+2);
+            dp[i] += dfs(i+2, s, dp);
         }
-        
-        dp[i] = res;
-        return res;
+        return dp[i];
     }
 }
