@@ -1,5 +1,5 @@
 class Solution {
-    // TC: O(log(n))
+    // TC: O(n)
     public int maxArea(int[] height) {
         int l = 0, r = height.length -1;
         int area = 0;
