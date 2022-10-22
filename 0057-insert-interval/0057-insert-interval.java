@@ -8,7 +8,7 @@ class Solution {
                 res.add(newInterval);
                 int[][] remainArr = Arrays.copyOfRange(intervals, i, intervals.length);   
                 res.addAll(Arrays.asList(remainArr));
-                return res.toArray(new int[0][]);
+                return res.toArray(new int[res.size()][]);
             } else if (newInterval[0] > intervals[i][1]) {
                 res.add(intervals[i]);
             } else {
@@ -19,6 +19,6 @@ class Solution {
         
         res.add(newInterval);
         
-        return res.toArray(new int[0][]);
+        return res.toArray(new int[res.size()][]);
     }
 }
