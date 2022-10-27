@@ -1,4 +1,6 @@
 class Solution {
+    // Bottom-Up
+    // TC: O(m*n), SC: O(m*n)
     public int longestCommonSubsequence(String text1, String text2) {
         int len1 = text1.length(), len2 = text2.length();
         
