@@ -10,7 +10,41 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        return arraySolution(head);
+        return splitListNode(head);
+    }
+    
+    // TC: O(n), SC: O(1)
+    private boolean splitListNode(ListNode head) {
+        ListNode fast = head, slow = head;
+        
+        // find the middle
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next; // will stop at the middle
+        }
+        
+        // revert the right hand portion
+        // n1 -> n2 -> n3 -> n4
+        //.n1 -> n2  null <- n3 <- n4
+        ListNode prev = null, temp = null;
+        while (slow != null) {
+            temp = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = temp;
+        }
+        
+        // check isPalindrome
+        ListNode l = head, r = prev;
+        while (r != null) {
+            if (l.val != r.val) {
+                return false;
+            }
+            l = l.next;
+            r = r.next;
+        }
+        
+        return true;
     }
     
     // TC: O(n), SC: O(n)
