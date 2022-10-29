@@ -5,7 +5,6 @@ class Solution {
     public int lengthOfLIS(int[] nums) {
         int arryLen = nums.length;
         int[] lis = new int[arryLen];
-        //Arrays.fill(lis, 1);
         
         int max = 1;
         
