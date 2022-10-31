@@ -15,6 +15,10 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
+        return inorder(root);
+    }
+    
+    private boolean inorder(TreeNode root) {
         List<Integer> list = new ArrayList<Integer>();
         inorder(root, list);
         
@@ -25,7 +29,6 @@ class Solution {
         }
         
         return true;
-        
     }
     
     private void inorder(TreeNode root, List<Integer> list) {
