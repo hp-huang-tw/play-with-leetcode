@@ -18,7 +18,7 @@ class Solution {
         List<Integer> list = new ArrayList<Integer>();
         inorder(root, list);
         
-        for (int i=1; i < list.size(); i++) {
+        for (int i = 1; i < list.size(); i++) {
             if (list.get(i) <= list.get(i -1) ) {
                 return false;
             }
