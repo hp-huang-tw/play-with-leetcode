@@ -15,7 +15,18 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        return inorder(root);
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+    
+    // TC: O(n)    
+    private boolean isValidBST(TreeNode node, long left, long right) {
+        if (node == null) {
+            return true;
+        }
+        
+        if (!(left < node.val && node.val < right)) return false;
+        
+        return isValidBST(node.left, left, node.val) && isValidBST(node.right, node.val, right);
     }
     
     private boolean inorder(TreeNode root) {
