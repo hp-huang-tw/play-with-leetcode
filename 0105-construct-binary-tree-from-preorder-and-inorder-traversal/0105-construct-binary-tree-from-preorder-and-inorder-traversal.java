@@ -19,19 +19,17 @@ class Solution {
             return null;
         }
         
-        // '3, 9, 20, 15, 7'
-        // '9, 3, 15, 20, 7'
-        
         TreeNode root = new TreeNode(preorder[0]);
-        //if(preorder.length==1) return root;
-       // int mid = Arrays.asList(inorder).indexOf(preorder[0]);
-        int mid = -1;
-	    for(int i=0;i<inorder.length;i++) { 
-            if(inorder[i]==preorder[0]) { 
+        
+        // find the mid of index in the inorder array
+	    int mid = -1;
+	    for (int i = 0;i < inorder.length;i++) { 
+            if (inorder[i]==preorder[0]) { 
                 mid=i;
                 break;
             }
-        }
+	    }
+        
         root.left = buildTree(Arrays.copyOfRange(preorder, 1, mid + 1), 
                               Arrays.copyOfRange(inorder, 0, mid));
         root.right = buildTree(Arrays.copyOfRange(preorder, mid + 1, preorder.length),
