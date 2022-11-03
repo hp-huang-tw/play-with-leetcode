@@ -9,6 +9,7 @@
  */
 
 class Solution {
+    // TC: O(log(n)), SC: O(1)
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         TreeNode cur = root;
         
