@@ -9,7 +9,6 @@ class Solution {
             tMap.put(c, 1 + tMap.getOrDefault(c, 0));
         }
         
-        
         int matchCount = 0, needCount = tMap.size();
         String res = "";
         int minLen = Integer.MAX_VALUE;
@@ -30,15 +29,13 @@ class Solution {
                 if (len < minLen) {
                     res = s.substring(l, r + 1);
                     minLen = len;
-                    //result[0] = l;
-                    //result[1] = r;
                 }
                  
                 // pop from the left of our windows
                 char leftChar = s.charAt(l);
-                //sMap.put(leftChar, sMap.get(leftChar) - 1);
-                if (sMap.get(leftChar) == 1) sMap.remove(leftChar);
-                else sMap.put(leftChar, sMap.get(leftChar) - 1);
+                //if (sMap.get(leftChar) == 1) sMap.remove(leftChar);
+                //else 
+                    sMap.put(leftChar, sMap.get(leftChar) - 1);
                 
                 l++;
                 
