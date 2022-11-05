@@ -31,18 +31,16 @@ class Solution {
                     minLen = len;
                 }
                  
-                // pop from the left of our windows
-                char leftChar = s.charAt(l);
-                //if (sMap.get(leftChar) == 1) sMap.remove(leftChar);
-                //else 
-                    sMap.put(leftChar, sMap.get(leftChar) - 1);
                 
-                l++;
+                char leftChar = s.charAt(l);
+                sMap.put(leftChar, sMap.get(leftChar) - 1);
+                
                 
                 if (tMap.containsKey(leftChar) && sMap.getOrDefault(leftChar, 0) < tMap.get(leftChar)) {
                     matchCount--;
                 }
                 
+                l++;
             }
             
         }
