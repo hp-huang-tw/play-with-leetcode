@@ -9,7 +9,8 @@
  * }
  */
 class Solution {
-    // TC: nlog(k)
+    // TC: nlog(k). k is the number of linked lists.
+    // SC: O(1)
     public ListNode mergeKLists(ListNode[] lists) {
         int listLen = lists.length;
         if (listLen == 0) {
