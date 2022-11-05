@@ -31,7 +31,6 @@ class Solution {
                     minLen = len;
                 }
                  
-                
                 char leftChar = s.charAt(l);
                 sMap.put(leftChar, sMap.get(leftChar) - 1);
                 
@@ -46,37 +45,5 @@ class Solution {
         }
         
         return res;
-        //return  (minLen!= Float.POSITIVE_INFINITY) ? 
-          //  s.substring(result[0], result[1] + 1) : "";
     }
-    
-    public String minWindow2(String s, String t) {
-    int m = s.length(), n = t.length(), count = 0, start = 0, minWindow = Integer.MAX_VALUE;;
-    String res = "";
-    Map<Character, Integer> mapS = new HashMap<>();
-    Map<Character, Integer> mapT = new HashMap<>();
-    
-    for (char c : t.toCharArray()) mapT.put(c, mapT.getOrDefault(c, 0) + 1);
-    
-    for (int i = 0; i < m; i++) {
-        mapS.put(s.charAt(i), mapS.getOrDefault(s.charAt(i), 0) + 1);
-        if (mapT.containsKey(s.charAt(i)) && mapS.get(s.charAt(i)) <= mapT.get(s.charAt(i))) count++;
-        while (count == n) {
-            if (minWindow > i - start + 1) {
-                minWindow = i - start + 1;
-                res = s.substring(start, i + 1);
-            }
-            
-            char curr = s.charAt(start);
-            
-            if (mapS.get(curr) == 1) mapS.remove(curr);
-            else mapS.put(curr, mapS.get(curr) - 1);
-            
-            start++;
-            
-            if (mapT.containsKey(curr) && mapS.getOrDefault(curr, 0) < mapT.get(curr)) count--;
-        }
-    }
-    return res;
-}
 }
