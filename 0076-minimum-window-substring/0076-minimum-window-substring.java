@@ -9,7 +9,7 @@ class Solution {
             tMap.put(c, 1 + tMap.getOrDefault(c, 0));
         }
         
-        int matchCount = 0, needCount = tMap.size();
+        int matchCount = 0;
         String res = "";
         int minLen = Integer.MAX_VALUE;
         
