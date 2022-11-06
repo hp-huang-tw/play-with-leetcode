@@ -13,7 +13,6 @@ class Solution {
                 
 //                 List<String> transformations = comboWordsMap.getOrDefault(pattern, new ArrayList<String>());
 //                 transformations.add(word);
-                
 //                 comboWordsMap.put(pattern, transformations);
                 comboWordsMap.computeIfAbsent(pattern, k -> new ArrayList<>()).add(word);
 
@@ -56,7 +55,6 @@ class Solution {
         } */
         
         Set<String> visited = new HashSet<String>();
-        //visited.add(beginWord);
         Queue<Pair<String, Integer>> q = new LinkedList<Pair<String, Integer>>();
         q.add(new Pair(beginWord, 1));
         int res = 1;
@@ -77,15 +75,11 @@ class Solution {
                     for (int j = 0; j < currWord.length(); j++) {
                         // hit -> *it, h*t, hi*
                         String pattern = currWord.substring(0, j) + '*' + currWord.substring(j + 1);
-                    
                         for (String comboWord : comboWordsMap.get(pattern)) { // hot   
-                                //visited.add(comboWord);
                                 q.add(new Pair(comboWord, level+1));
                         }
                     }
                 }
-                
-                
             }
         }
         
