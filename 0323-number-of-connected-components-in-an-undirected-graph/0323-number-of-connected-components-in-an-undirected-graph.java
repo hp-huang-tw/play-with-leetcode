@@ -1,8 +1,13 @@
+// DFS solution
+// TC: O(E+V), OC: O(E+V)
 class Solution {
+    
     private int[] parent;
     private int[] size;
             
     // union-find with path compression and union by size
+    // DFS solution
+    // TC: O(E+V), OC: O(n)
     public int countComponents(int n, int[][] edges) {
         parent = new int[n];
         size = new int[n]; // size of component
