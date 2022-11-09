@@ -1,4 +1,5 @@
 class Solution {
+    // TC: O(nlog(n)), SC: O(1)
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         Arrays.sort(boxTypes, (a, b) -> b[1] - a[1]);
         
