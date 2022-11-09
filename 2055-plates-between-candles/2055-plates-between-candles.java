@@ -1,6 +1,6 @@
 class Solution {
     
-    // TC: O(n), SC: O(n)
+    // TC: O(n+q), SC: O(n)
     public int[] platesBetweenCandles(String s, int[][] queries) {
         int strLen = s.length();
         List<Integer> presum = new ArrayList<>();
