@@ -11,14 +11,19 @@ class Solution {
             
             if (complement == 0) return res;
             
+            int minNumber = Math.min(numberOfBoxes, complement);
+            res +=  minNumber * numberOfUnits;
+            complement -= minNumber;
+
+            /*
             if (numberOfBoxes <= complement) {
                 res += numberOfBoxes * numberOfUnits;
                 complement -= numberOfBoxes;
             } else {
                 res += complement * numberOfUnits;
                 complement = 0;
-                
             }
+            */
         }
         return res;
     }
