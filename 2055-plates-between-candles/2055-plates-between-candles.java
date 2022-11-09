@@ -2,11 +2,12 @@ class Solution {
     
     // TC: O(n), SC: O(n)
     public int[] platesBetweenCandles(String s, int[][] queries) {
-        int n = s.length();
+        int strLen = s.length();
         List<Integer> presum = new ArrayList<>();
-        int[] closestLeft = new int[n], closestRight = new int[n];
+        int[] closestLeft = new int[strLen], closestRight = new int[strLen];
+        
         int sum = 0, index = -1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < strLen; i++) {
             if (s.charAt(i) == '*') sum++;
             else {
                 presum.add(sum);
@@ -16,7 +17,7 @@ class Solution {
         }
 
         index = presum.size();;
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = strLen - 1; i >= 0; i--) {
             if (s.charAt(i) == '|') index--;
             closestRight[i] = index;
         }
