@@ -15,16 +15,29 @@ class Node {
 
 class Solution {
     
+    HashMap<Node, Node> copiedMap = new HashMap<>();
+    
+    // copyRandomList
     public Node copyRandomList(Node head) {
-        return hashMap(head);
+        if (head == null) return null;
+        
+        if (copiedMap.containsKey(head)) {
+            return copiedMap.get(head);
+        }
+        
+        Node node = new Node(head.val);
+        copiedMap.put(head, node);
+        
+        node.next = copyRandomList(head.next);
+        node.random = copyRandomList(head.random);
+        
+        return node;
     }
     
     // TC: O(n), SC: O(n)
-    private Node hashMap(Node head) {
+    private Node hashcopyRandomList_HashMap(Node head) {
         if (head == null) return null;
         
-        HashMap<Node, Node> copiedMap = new HashMap<>();
-
         Node currNode = head;
         while (currNode != null) {
             Node copiedNode = new Node(currNode.val);
