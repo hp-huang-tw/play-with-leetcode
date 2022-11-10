@@ -21,6 +21,8 @@ class Solution {
     
     // TC: O(n), SC: O(n)
     private Node hashMap(Node head) {
+        if (head == null) return null;
+        
         HashMap<Node, Node> copiedMap = new HashMap<>();
 
         Node currNode = head;
