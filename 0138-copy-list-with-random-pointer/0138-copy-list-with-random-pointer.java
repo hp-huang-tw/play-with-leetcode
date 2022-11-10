@@ -17,6 +17,8 @@ class Solution {
     
     HashMap<Node, Node> copiedMap = new HashMap<>();
     
+    // Space optimization
+    // TC: O(n), SC: O(1)
     public Node copyRandomList(Node head) {
 
         if (head == null) {
