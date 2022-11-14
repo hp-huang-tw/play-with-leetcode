@@ -5,9 +5,10 @@ class Solution {
     
     // monotonic queue
     public int[] maxSlidingWindow(int[] nums, int k) {
-        //int[] res = new int[nums.length - k + 1]; // index
-        List<Integer> res = new ArrayList<>();
-        int l = 0, r = 0;
+        int[] res = new int[nums.length - k + 1]; // index
+        // List<Integer> resList = new ArrayList<>();
+        
+        int l = 0, r = 0, curr = 0;
         
         Deque<Integer> q = new LinkedList<>();
         
@@ -25,34 +26,15 @@ class Solution {
             
             // start to ouput if r + 1 = k
             if (r + 1 >= k) {
-                res.add(nums[q.peek()]);
+                // resList.add(nums[q.peek()]);
+                res[curr++] = nums[q.peek()];
                 l++;
             }
             
             r++;
         }
+        return res;
         
-        return res.stream().mapToInt(Integer::intValue).toArray();
-        
-        
-//         int[] arr = new int[nums.length-k+1];
-//         int l = 0;
-//         int r = 0;
-//         int cnt = 0;
-        
-//         Deque<Integer> q = new LinkedList<>();
-//         while(r < nums.length){
-//             while(!q.isEmpty() && nums[q.peekLast()] < nums[r])
-//                 q.pollLast();
-//             q.offer(r);
-//             if(l > q.peek())
-//                 q.poll();
-//             if(r+1 >= k){
-//                 arr[cnt++] = nums[q.peek()];
-//                 l += 1;                
-//             }
-//             r += 1;
-//         }
-//         return arr;
+        // return resList.stream().mapToInt(Interger::intValue).toArray();
     }
 }
