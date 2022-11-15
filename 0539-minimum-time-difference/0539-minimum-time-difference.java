@@ -1,8 +1,39 @@
 class Solution {
     public int findMinDifference(List<String> timePoints) {
-       return generalSort(timePoints);
+       return coutingSort(timePoints);
     }
     
+    private int coutingSort(List<String> timePoints) {
+        int n = timePoints.size();
+        boolean[] buckets = new boolean[24*60];
+        
+        for (String time: timePoints) {
+            int minutes = transform(time);
+            if (buckets[minutes]) { // list has same time return diff = 0
+                return 0;
+            }
+            buckets[minutes] = true;
+        }
+        
+        // find first and rev. then diff them
+        int first = -1, prev = 0;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < buckets.length; i++) {
+            if (buckets[i]) {
+                if (first == -1) {
+                    first = i;
+                } else {
+                    min = Math.min(min, i - prev);
+                }
+                prev = i;
+            }
+        }
+        
+        // diff first-last
+        min = Math.min(min, first - prev + 24*60);
+        
+        return min;
+    }
     
     // TC: O(nlog(n))
     // SC: O(n)
