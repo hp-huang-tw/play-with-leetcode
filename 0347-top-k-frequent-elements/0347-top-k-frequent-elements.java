@@ -3,11 +3,15 @@ class Solution {
     // heap: O(n long(n))
     // time: O(n)
     public int[] topKFrequent(int[] nums, int k) {
-        return hashMapAsHeap(nums, k);
+        return minHeap(nums, k);
     }
     
     
     private int[] minHeap(int[] nums, int k) {
+        if (k == nums.length) {
+            return nums;
+        }
+        
         HashMap<Integer, Integer> numCountMap = new HashMap<>();
         
         for (int num : nums) {
@@ -19,7 +23,7 @@ class Solution {
             (n1, n2) -> numCountMap.get(n1) - numCountMap.get(n2));
         
         for (int n: numCountMap.keySet()) {
-            q.offer(n);
+            q.add(n);
             
             if (q.size() > k) {
                 q.poll();
@@ -28,8 +32,8 @@ class Solution {
         
         int[] res = new int[k];
         
-        for (int i = k; i >= 0; i--) {
-            res[k-1] = q.poll();
+        for (int i = k; i > 0; i--) {
+            res[i-1] = q.poll();
         }
         
         return res;
