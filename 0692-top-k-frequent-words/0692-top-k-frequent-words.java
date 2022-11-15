@@ -6,13 +6,28 @@ class Solution {
     
     
     // minHeap
-//     private List<String> minHeap(String[] words, int k) {
-//         HashMap<String, Integer> wordCountMap = buidWordCountMap(words, k);
+    private List<String> minHeap(String[] words, int k) {
+        HashMap<String, Integer> wordCountMap = buidWordCountMap(words, k);
         
-//         PriorityQueue<String> q = new PriorityQueue<>();
+        PriorityQueue<String> q = new PriorityQueue<>(
+            (w1, w2) -> wordCountMap.get(w1).equals(wordCountMap.get(w2)) ?
+                         w1.compareTo(w2) : wordCountMap.get(w2) - wordCountMap.get(w1));
         
-//         return 
-//     }
+        for (String word: wordCountMap.keySet()) {
+            q.offer(word);
+            if (q.size() > k) {
+                q.poll();
+            }
+        }
+        
+        List<String> res = new ArrayList<>();
+        
+        while (!q.isEmpty()) {
+            res.add(q.poll());
+        }
+        
+        return res;
+    }
     
     
     // TC: O(nlog(n)). 
