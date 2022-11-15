@@ -3,6 +3,8 @@ class Solution {
        return coutingSort(timePoints);
     }
     
+    // TC: O(n+m). m = 24*60
+    // SC: O(m) = O(1)
     private int coutingSort(List<String> timePoints) {
         int n = timePoints.size();
         boolean[] buckets = new boolean[24*60];
