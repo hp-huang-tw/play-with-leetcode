@@ -16,7 +16,6 @@ class Solution {
     
     private ListNode currNode = headNode;
     
-    
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int sum = l1.val + l2.val + carry;
         carry = sum/10;
