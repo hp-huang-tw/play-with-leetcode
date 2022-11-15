@@ -48,8 +48,6 @@ class Solution {
             currNode = currNode.next;
         }
         
-        // headNode = headNode.next;
-        
         return headNode.next;
     }
     
