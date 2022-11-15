@@ -1,7 +1,7 @@
 class Solution {
     
-    // heap: O(n long(n))
-    // time: O(n)
+    // heap: O(nlog(k))
+    // time: O(n+k)
     public int[] topKFrequent(int[] nums, int k) {
         return minHeap(nums, k);
     }
