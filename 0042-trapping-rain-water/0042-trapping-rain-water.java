@@ -5,26 +5,23 @@ class Solution {
         
         int l = 0, r = n -1;
         int maxLeft = height[l], maxRight = height[r];
-        int sum = 0;
+        int res = 0;
         
         while (l < r) {
             int trapped = 0;
             if (maxLeft < maxRight) { // shift l
                 l++;
-                trapped = Math.min(maxLeft, maxRight) - height[l];
                 maxLeft = Math.max(maxLeft, height[l]);
+                res += maxLeft - height[l];
+                
                 
             } else { // shift r
                 r--;
-                trapped = Math.min(maxLeft, maxRight) - height[r];
                 maxRight = Math.max(maxRight, height[r]);
-            }
-            
-            if (trapped > 0) {
-                sum += trapped;
+                res += maxRight - height[r];
             }
         }
         
-        return sum;
+        return res;
     }
 }
