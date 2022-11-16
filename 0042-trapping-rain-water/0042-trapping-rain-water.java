@@ -1,4 +1,6 @@
 class Solution {
+    
+    // TC: O(n). SC: O(1)
     public int trap(int[] height) {
         int n = height.length;
         if (n == 0) return 0;
