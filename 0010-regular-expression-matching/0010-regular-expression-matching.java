@@ -16,7 +16,7 @@ class Solution {
         this.p = p;
         sLen = s.length();
         pLen = p.length();
-        cached = new Boolean[sLen+1][pLen+1];
+        cached = new Boolean[sLen + 1][pLen + 1];
         return dpTopDown(0, 0);
     }
     
