@@ -23,7 +23,7 @@ class TicTacToe {
         cols[col] += currentPlayer;
         
         if (row == col) diagonal += currentPlayer;
-        if (n - row - 1 == col) antiDiagonal += currentPlayer;
+        if (col == n - row - 1) antiDiagonal += currentPlayer;
         
         if (Math.abs(rows[row]) == n ||
             Math.abs(cols[col]) == n ||
