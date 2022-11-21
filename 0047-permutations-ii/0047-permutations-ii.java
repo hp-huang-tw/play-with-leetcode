@@ -2,7 +2,7 @@ class Solution {
     
     int[] nums;
     
-    int n;
+    int numsLen;
     
     List<List<Integer>> res;
     
@@ -10,8 +10,8 @@ class Solution {
     
     public List<List<Integer>> permuteUnique(int[] nums) {
         this.nums = nums;
-        n = nums.length;
-        used = new boolean[n];
+        numsLen = nums.length;
+        used = new boolean[numsLen];
         res = new ArrayList<>();
         
         Arrays.sort(nums);
@@ -23,12 +23,12 @@ class Solution {
     
     // TC: O(n*n!), SC: O(n!)
     private void permuteHelper(List<Integer> permutes) {
-        if (permutes.size() == n) {
+        if (permutes.size() == numsLen) {
             res.add(new ArrayList<>(permutes));
             return;
         }
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numsLen; i++) {
             if (used[i]) continue;
             if (i > 0 && nums[i] == nums[i-1] && used[i-1]) continue;
             permutes.add(nums[i]);
