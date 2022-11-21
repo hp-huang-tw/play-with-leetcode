@@ -16,6 +16,7 @@ class Solution {
     }
     
     // TC: O(n*n!), SC:(n!)
+    // ref: https://leetcode.com/problems/permutations/discuss/18239/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partioning)
     private void permuteHelper(List<Integer> permutes) {
         if (permutes.size() == n) {
             res.add(new ArrayList<>(permutes));
