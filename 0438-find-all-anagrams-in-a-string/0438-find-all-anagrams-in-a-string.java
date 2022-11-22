@@ -11,7 +11,12 @@ class Solution {
         if (sLen * pLen == 0 || sLen < pLen) {
             return result;
         }
-
+        
+        // res = [0, 
+        // toBeMatched = 3, | a: 1, b: 1, c: 1 |
+        //               2,                  0
+        //               1             0
+        //               0       0
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < p.length(); i++) {
             map.put(p.charAt(i), map.getOrDefault(p.charAt(i), 0) + 1);
@@ -22,24 +27,24 @@ class Solution {
         int end = 0;
 
         while (end < sLen) {
-            char eChar = s.charAt(end);
-            if (map.containsKey(eChar)) {
-                int count = map.get(eChar);
+            char endChar = s.charAt(end);
+            if (map.containsKey(endChar)) {
+                int count = map.get(endChar);
                 if (count == 1) {
                     toBeMatched--;
                 }
-                map.put(eChar, count - 1);
+                map.put(endChar, count - 1);
             }
             end++;
 
             if (end - start > pLen) {
-                char sChar = s.charAt(start);
-                if (map.containsKey(sChar)) {
-                    int count = map.get(sChar);
+                char startChar = s.charAt(start);
+                if (map.containsKey(startChar)) {
+                    int count = map.get(startChar);
                     if (count == 0) {
                         toBeMatched++;
                     }
-                    map.put(sChar, count + 1);
+                    map.put(startChar, count + 1);
                 }
                 start++;
             }
