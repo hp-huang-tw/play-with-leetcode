@@ -1,27 +1,38 @@
 class Solution {
-    // sorted solution: O(nlogn)
-    // O(n), O(n)
+    // sorted solution: 
+    // Step1. sort by ascending. O(nlogn)
+    // Step2. count + 1
+    // SC: O(1)
+    
+    // Union Find solution
+    // TC: O(n)
+    // SC: O(n). store nums to hash set to look up. similar with HashTable solution
     public int longestConsecutive(int[] nums) {
-        // O(n)
         Set<Integer> numsSet = new HashSet<>();
-        for (int n : nums){
-            numsSet.add(n);
+        
+        for (int num : nums) {
+            numsSet.add(num);
         }
         
         int longest = 0;
         
-        for (int num : numsSet) {
-            // check if is a start elemnet 1 3 2
-            if (!numsSet.contains(num - 1)) {
-                int length = 0;
-                
-                // start find the end from the start element
-                while (numsSet.contains(num + length)) {
-                    length++;
+        // iterate through nums. O(n)
+        for (int currNum : nums) {
+            // check whether current number is start of the sequence
+            //    100 4 200 1 3 2
+            //-->  | 1.2 3 4 | ....|100|....|200|....
+            if (!numsSet.contains(currNum - 1)) {
+                int count = 0;
+
+                // count how many consecutive nums exists from current number
+                while (numsSet.contains(currNum + count)) {
+                    count++;
                 }
-                longest = Math.max(longest, length);
-            }
+
+                longest = Math.max(longest, count);
+            }            
         }
+        
         return longest;
     }
 }
