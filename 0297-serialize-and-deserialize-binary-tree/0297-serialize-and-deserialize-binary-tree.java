@@ -46,7 +46,7 @@ public class Codec {
     //                             |----- TreeNode(5)
     public TreeNode deserialize(String data) {
         //System.out.println(data);
-        List<String> dataList = new ArrayList<>(Arrays.asList(data.split(",")));
+        List<String> dataList = Arrays.asList(data.split(","));
         return deserializeHelper(dataList);
     }
     
