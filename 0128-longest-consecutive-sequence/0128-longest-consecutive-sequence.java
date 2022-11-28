@@ -1,6 +1,6 @@
 class Solution {
     
-    public int longestConsecutive(int[] nums) {
+    public int longestConsecutive1(int[] nums) {
         int res = 0;// answer len
         Set<Integer> set = new HashSet<>();
         for(int i:nums) set.add(i); // add all elements in a set, we dont require duplicates because - 
@@ -33,7 +33,7 @@ class Solution {
     // Union Find solution
     // TC: O(n)
     // SC: O(n). store nums to hash set to look up. similar with HashTable solution
-    public int longestConsecutive2(int[] nums) {
+    public int longestConsecutive(int[] nums) {
         Set<Integer> numsSet = new HashSet<>();
         
         for (int num : nums) {
