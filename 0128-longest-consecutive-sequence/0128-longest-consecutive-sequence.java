@@ -18,7 +18,7 @@ class Solution {
         int longest = 0;
         
         // iterate through nums. O(n)
-        for (int currNum : numsSet) {
+        for (int currNum : nums) {
             // check whether current number is start of the sequence
             //    100 4 200 1 3 2
             //-->  | 1.2 3 4 | ....|100|....|200|....
