@@ -15,7 +15,7 @@ class Solution {
                 stack.pop();
 
                StringBuilder count = new StringBuilder();
-                while(!stack.isEmpty() && Character.isDigit(stack.peek())) {
+                while (!stack.isEmpty() && Character.isDigit(stack.peek())) {
                     Character digit = stack.pop();
                     count.insert(0, digit); // 10[a]
                 }
