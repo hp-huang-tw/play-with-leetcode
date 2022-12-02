@@ -43,7 +43,7 @@ class Solution {
     
     private boolean isValid(String[] pizza, int rowS, int rowE, int colS, int colE) {
         for (int i = rowS; i <= rowE; i++) {
-            for(int j = colS; j <= colE; j++) {
+            for (int j = colS; j <= colE; j++) {
                 if (pizza[i].charAt(j) == 'A') return true;
             }
         }
