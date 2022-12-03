@@ -8,13 +8,11 @@ class Solution {
         for (int ast : asteroids) {
             boolean push = true;
             
-            // collide successully. e.g, [1, 2, -3]
-            // diff way and size of ast > prev, pop prev
             while (!stack.isEmpty() && isCollision(stack.peek(), ast)) {
                 int curAstSize = Math.abs(ast);
                 int preAstSize = stack.peek();
                 
-                if (curAstSize > preAstSize) {
+                if (curAstSize > preAstSize) {  // collide successully. e.g, [1, 2, -3]
                     stack.pop();
                 } else if (curAstSize <= preAstSize) {  // collide failed. e.g, [1, 5, -3]
                     push = false;
