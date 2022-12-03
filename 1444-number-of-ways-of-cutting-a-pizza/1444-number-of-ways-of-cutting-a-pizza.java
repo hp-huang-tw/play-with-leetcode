@@ -1,5 +1,6 @@
 class Solution {
     
+    // DP + Memoization
     Map<String, Long> memo = new HashMap<>();
     
     public int ways(String[] pizza, int k) {
@@ -50,4 +51,50 @@ class Solution {
         
         return false;
     }
+    
+    /* preSum
+    
+    int r, c, MOD = 1_000_000_007;
+    
+    int[][] preSum;
+    
+    Integer[][][] dp;
+    
+    public int ways(String[] pizza, int k) {
+        r = pizza.length;
+        c = pizza[0].length();
+        preSum = new int[r+1][c+1];
+        dp = new Integer[r][c][k];
+        for (int i = r-1; i >= 0; i--) {
+            for (int j = c-1; j >= 0; j--) {
+                preSum[i][j] = (pizza[i].charAt(j) == 'A' ? 1 : 0) + preSum[i+1][j] + preSum[i][j+1] - preSum[i+1][j+1];
+            }
+        }
+        return dfs(0, 0, k-1);
+    }
+    private int dfs(int x, int y, int cut) {
+        if (dp[x][y][cut] != null) return dp[x][y][cut];
+        
+        if (preSum[x][y] == 0) return 0;
+        
+        if (cut == 0 && preSum[x][y] > 0) return 1;
+        int ans = 0;
+        // Cut horizontal
+        for(int i = x+1; i < r; i++) {
+            if(preSum[x][y] - preSum[i][y] > 0) {
+                ans = (ans + dfs(i, y, cut-1)) % MOD;
+            }
+        }
+        // Cut vertical
+        for(int j = y+1; j < c; j++) {
+            if(preSum[x][y] - preSum[x][j] > 0) {
+                ans = (ans + dfs(x, j, cut-1)) % MOD;
+            }
+        }
+        dp[x][y][cut] = ans;
+        return ans;
+    }
+    
+    */
+    
 }
