@@ -2,8 +2,8 @@ class Solution {
     
     // TC: O(n). SC: O(n)
     public int[] asteroidCollision(int[] asteroids) {
-        Stack<Integer> stack = new Stack();
-        // Deque<Integer> stack = new ArrayDeque();
+        // Stack<Integer> stack = new Stack();
+        Deque<Integer> stack = new ArrayDeque();
         
         for (int ast : asteroids) {
             boolean push = true;
@@ -32,13 +32,13 @@ class Solution {
         
         
         int[] res = new int[stack.size()];
-        for (int i = res.length - 1; i > -1; i--) {
-            res[i] = stack.pop();
-        }
-        // int i = 0;
-        // while (!stack.isEmpty()) {
-        //     res[i++] = stack.pollLast();
+        // for (int i = res.length - 1; i > -1; i--) {
+        //     res[i] = stack.pop();
         // }
+        int i = 0;
+        while (!stack.isEmpty()) {
+            res[i++] = stack.pollLast();
+        }
         return res;
     }
     
