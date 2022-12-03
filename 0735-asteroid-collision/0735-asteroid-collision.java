@@ -3,7 +3,6 @@ class Solution {
         Stack<Integer> stack = new Stack();
         // Deque<Integer> stack = new ArrayDeque();
         
-        
         for (int ast : asteroids) {
             boolean push = true;
             
