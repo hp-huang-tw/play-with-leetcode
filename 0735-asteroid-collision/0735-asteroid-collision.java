@@ -1,4 +1,6 @@
 class Solution {
+    
+    // TC: O(n). SC: O(n)
     public int[] asteroidCollision(int[] asteroids) {
         Stack<Integer> stack = new Stack();
         // Deque<Integer> stack = new ArrayDeque();
