@@ -36,6 +36,7 @@ class Solution {
     
     // post order traversal of subtree rooted at `root`
     // calc sub-left, sub-right
+    // max path without split (can choose both l & r)
     private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
@@ -49,7 +50,7 @@ class Solution {
          // add the path sum from right subtree. 0 if negative
         int rightMax = Math.max(0, dfs(root.right));
         
-        // max path with split
+        // max path with split (only can choose one of l & r)
         // if left or right path sum are negative, they are counted
         // as 0, so this statement takes care of all four scenarios
         res = Math.max(res, root.val + leftMax + rightMax);
