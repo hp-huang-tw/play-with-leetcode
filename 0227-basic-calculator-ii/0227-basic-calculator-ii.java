@@ -4,7 +4,10 @@ class Solution {
     // - https://leetcode.com/problems/basic-calculator/
     // - https://leetcode.com/problems/basic-calculator-iii/
     // stack solution
+    // TC: O(n)
+    // SC: O(n)
     public int calculate(String s) {
+        // if (s == null || s.isEmpty()) return 0; // if s == null or s == ""
         int strLen = s.length();
         Stack<Integer> stack = new Stack();
         int sign = '+';
@@ -53,6 +56,7 @@ class Solution {
         // return stack.stream().mapToInt(Integer::intValue).sum();
     }
     
+    // Optimised Approach without the stack
     // TC: O(n), SC: O(1)
     public int calculateSolution2(String s) {
         int strLength = s.length();
