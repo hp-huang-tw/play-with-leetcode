@@ -10,10 +10,11 @@ class Solution {
         // 1. check if self is 1. 
         // 2. yes. find the min dp value of anti-diagonal, top, left
         // original        dp map
-        //                  0 0 0
-        // 0 1 1          0 0 1 1
-        // 1 1 1      ->  0 1 1 2  max = 2 -> area = max * max
-        // 1 0 0          0 1 0 0
+        //                   0 0 0
+        //                  -----
+        // 0 1 1          0| 0 1 1
+        // 1 1 1      ->  0| 1 1 2  max = 2 -> area = max * max
+        // 1 0 0          0| 1 0 0
         
         // we add an extra all zero column and row outside of the actual dp table
         // to handle out of bound case
