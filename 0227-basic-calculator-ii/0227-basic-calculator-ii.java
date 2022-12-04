@@ -49,7 +49,6 @@ class Solution {
         }
         
         
-        
         int res = 0;
         while (!stack.isEmpty()) res += stack.pop();
         return res;
