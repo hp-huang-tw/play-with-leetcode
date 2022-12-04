@@ -12,7 +12,7 @@ class Solution {
         // original        dp map
         //                  0 0 0
         // 0 1 1          0 0 1 1
-        // 1 1 1      ->  0 1 2 2  max = 2 -> area = max * max
+        // 1 1 1      ->  0 1 1 2  max = 2 -> area = max * max
         // 1 0 0          0 1 0 0
         
         // we add an extra all zero column and row outside of the actual dp table
