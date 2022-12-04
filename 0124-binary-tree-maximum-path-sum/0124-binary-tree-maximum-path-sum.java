@@ -22,6 +22,12 @@ class Solution {
     
     int res;
     
+    // TC: O(n)
+    // SC: O(n)
+    // We don't use any auxiliary data structure, 
+    // but the recursive call stack can go as deep as the tree's height. 
+    // In the worst case, the tree is a linked list, so the height is nn. 
+    // Therefore, the space complexity is O(n)
     public int maxPathSum(TreeNode root) {
         res = root.val;
         dfs(root);
