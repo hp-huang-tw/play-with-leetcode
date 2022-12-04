@@ -21,9 +21,9 @@ class Solution {
     //        4   5
     
     int res;
+    
     public int maxPathSum(TreeNode root) {
         res = root.val;
-        //if ()
         dfs(root);
         return res;
     }
