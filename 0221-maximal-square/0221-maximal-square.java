@@ -2,7 +2,7 @@ class Solution {
     public int maximalSquare(char[][] matrix) {
         int rows = matrix.length; 
         // int cols = rows > 0 ? matrix[0].length : 0; // if 0 <= m, n <= 300
-        int cols = matrix[0].length;
+        int cols = matrix[0].length; // the constraints is 1 <= m, n <= 300
         
         int[][] dp = new int[rows + 1][cols + 1];
         int maxSquareLen = 0;
