@@ -18,6 +18,9 @@ class Solution {
     //  9 9 4        1 1 2                  1 1 2         1 1 2   
     //  6 6 8  --->      1            --->  2   1   --->  2 2 1   -> max(LIS) = 4
     //  2 1 1                                             3 4 2
+    
+    // TC: O(m*n)
+    // SC: O(m*n)
     public int longestIncreasingPath(int[][] matrix) {
         if (matrix.length == 0) return 0;
         this.matrix = matrix;
