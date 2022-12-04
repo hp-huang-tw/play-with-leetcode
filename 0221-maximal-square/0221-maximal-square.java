@@ -8,7 +8,7 @@ class Solution {
         int colLen = matrix[0].length; // the constraints is 1 <= m, n <= 300
         
         // 1. check if self is 1. 
-        // 2. yes. check anti-diagonal, top, left len
+        // 2. yes. find the min dp value of anti-diagonal, top, left
         // original        dp map
         //                  0 0 0
         // 0 1 1          0 0 1 1
