@@ -29,7 +29,15 @@ class Solution {
         }
         
         // reverse index
+        /*
         Collections.reverse(canSeeBuildings);
         return canSeeBuildings.stream().mapToInt(Integer::intValue).toArray();
+        */
+        int canSeeBuildingsSize = canSeeBuildings.size();
+        int[] res = new int[canSeeBuildingsSize]; 
+        for (int i = 0; i < canSeeBuildingsSize; i++) {
+            res[i] = canSeeBuildings.get(canSeeBuildingsSize -1 -i);
+        }
+        return res;
     }
 }
