@@ -4,7 +4,6 @@ class Solution {
     
     List<Integer> factors = new ArrayList<>();
     
-
     public List<List<Integer>> getFactors(int n) {
         optimalHelper(n, 2);
         return result;
