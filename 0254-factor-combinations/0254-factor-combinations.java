@@ -39,12 +39,6 @@ class Solution {
     }
     
     public void helper3(int n, int start){
-        // if (n <= 1) {
-        //     if (factors.size() > 1) {
-        //         result.add(new ArrayList<>(factors));
-        //     }
-        //     return;
-        // }
         if (!factors.isEmpty()) {
              factors.add(n);
              result.add(new ArrayList<>(factors));
