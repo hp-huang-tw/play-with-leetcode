@@ -51,7 +51,7 @@ class Solution {
             factors.remove(factors.size() - 1); 
         }
 
-        for (int i = start; i <= n/i; i++) {
+        for (int i = start; i <= n / i; i++) {
             if (n % i == 0) {
                 factors.add(i);
                 helper(n/i, i);
