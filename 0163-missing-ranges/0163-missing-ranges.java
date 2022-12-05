@@ -12,6 +12,19 @@ class Solution {
         
         int numsLen = nums.length;
         
+        int prev = lower - 1;   // -3
+        for (int i = 0; i < numsLen + 1; i++) { // iterate one more for lastNumber & upper
+            int currNum = (i < numsLen) ? nums[i] : upper + 1; // upper=100
+            if (currNum > prev + 1) {
+                res.add(formatRange(prev + 1, currNum - 1));
+            }
+            
+            prev = currNum;
+        }
+        
+        // last one
+        
+        /*
         if (numsLen == 0) {
             res.add(formatRange(lower, upper));
             return res;
@@ -29,11 +42,13 @@ class Solution {
                 res.add(formatRange(currNum + 1, nextNum - 1));
             }
         }
+        */
         
-        int lastNum = nums[numsLen -1];
-        if (upper > lastNum) {
-            res.add(formatRange(lastNum + 1,upper));
-        }
+        // int lastNum = nums[numsLen -1];
+        // if (upper > lastNum) {
+        //     res.add(formatRange(lastNum + 1,upper));
+        // }
+
         
         return res;
     }
