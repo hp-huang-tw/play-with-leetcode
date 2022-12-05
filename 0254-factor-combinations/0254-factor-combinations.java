@@ -6,7 +6,7 @@ class Solution {
     
 
     public List<List<Integer>> getFactors(int n) {
-        helper2(n, 2);
+        helper(n, 2);
         return result;
     }
 
@@ -56,7 +56,7 @@ class Solution {
         
         int i = n; // ===> here, change 2
         factors.add(i);
-        helper2(n/i, i);
+        helper2(1, i);
         factors.remove(factors.size()-1);
     }
 }
