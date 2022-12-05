@@ -66,8 +66,6 @@ class Solution {
         }
     }
     
-
-    
     private void helper2(int n, int start) {
         if (n == 1) {
         	if (factors.size() > 1) {
