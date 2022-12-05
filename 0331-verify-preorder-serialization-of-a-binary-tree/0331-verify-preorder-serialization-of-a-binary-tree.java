@@ -37,10 +37,10 @@ class Solution {
         String[] nodes = preorder.split(",");
         
         int slots = 1;
-        for (String node : nodes) {                                      // slots
+        for (String node : nodes) {      //                                   slots
             slots--;                     //    (1)       // case:  1,#,#,1   
-                                         //    / \                     ^      0 
-            if (slots < 0) return false; // (#)   (#)                    ^.  -1    return false early      
+                                         //    / \                     ^        0 
+            if (slots < 0) return false; // (#)   (#)                    ^.    -1   return false early      
             
             if (!node.equals("#")) {
                 slots += 2;
