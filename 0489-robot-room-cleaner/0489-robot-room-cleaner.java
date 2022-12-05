@@ -36,13 +36,14 @@ class Solution {
         visited.add(new Pair(row, col));
         robot.clean();
         
-        // going clockwise : 0: 'up', 1: 'right', 2: 'down', 3: 'left'
-         for (int i = 0; i < 4; i++) {
+        // move clockwise(up->right->down->left)
+        for (int i = 0; i < 4; i++) {
             int nextDir = (dir + i) % 4;
-             
+            
             int nextRow = row + directions[nextDir][0];
             int nextCol = col + directions[nextDir][1];
-
+            
+            // not visit & can move
             if (!visited.contains(new Pair(nextRow, nextCol)) && robot.move()) {
                 backtrack(nextRow, nextCol, nextDir);
                 goBack();
@@ -52,12 +53,17 @@ class Solution {
             robot.turnRight();
         }
     }
-
-    public void goBack() {
+    
+    // Go back to that cell and then turn right from your last explored direction.
+    private void goBack() {
+        // go back prev position
         robot.turnRight();
         robot.turnRight();
         robot.move();
+        
+        // turn to original direction
         robot.turnRight();
         robot.turnRight();
     }
+    
 }
