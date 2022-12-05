@@ -40,15 +40,15 @@ class Solution {
     
     public void helper3(int n, int start){
         if (!factors.isEmpty()) {
-             factors.add(n);
-             result.add(new ArrayList<>(factors));
+            factors.add(n);
+            result.add(new ArrayList<>(factors));
             factors.remove(factors.size() - 1); 
         }
 
         for (int i = start; i <= n / i; i++) {
             if (n % i == 0) {
                 factors.add(i);
-                helper(n/i, i);
+                helper3(n/i, i);
                 factors.remove(factors.size() - 1); 
             }
         }
