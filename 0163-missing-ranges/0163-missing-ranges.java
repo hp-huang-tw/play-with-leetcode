@@ -41,7 +41,6 @@ class Solution {
     // 2, 2.  2
     // 2, 3.  2->3 
     private String formatRange(int start, int end) {
-        return (start == end) ? String.valueOf(start) : 
-        String.valueOf(start) + "->" + String.valueOf(end);
+        return (start == end) ? String.valueOf(start) : String.format("%d->%d", start, end);
     }
 }
