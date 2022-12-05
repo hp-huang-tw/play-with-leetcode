@@ -11,17 +11,17 @@ class Solution {
     }
     
     public void optimalHelper(int n, int start) {
-            System.out.format("n=%d, start=%d\n", n, start);
+            //System.out.format("n=%d, start=%d\n", n, start);
 
             // a/b = q...r
             //                 [b, q]
             // choose quotient [2, 6]
             if (!factors.isEmpty()) {
                 factors.add(n);
-                System.out.format("[added q] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
+                //System.out.format("[added q] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
                 result.add(new ArrayList<>(factors));
                 factors.remove(factors.size() - 1);
-                System.out.format("[removed q] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
+                //System.out.format("[removed q] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
             }
 
             // not choose quotient, lookup divisor(b) from 2 to n/2 (i.e. 2-3)
@@ -29,11 +29,11 @@ class Solution {
                 int nextVale = n / i;
                 if (n % i == 0) {
                     factors.add(i);
-                    System.out.format("[added b] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
-                    System.out.format("[next call] n=%d, start=%d\n", nextVale, start);
+                    //System.out.format("[added b] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
+                    // System.out.format("[next call] n=%d, start=%d\n", nextVale, start);
                     optimalHelper(nextVale, i);
                     factors.remove(factors.size() - 1);
-                    System.out.format("[removed b] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
+                    // System.out.format("[removed b] n=%d, start=%d, factors: %s\n", n, start, factors.toString());
                 }
             }
         }
