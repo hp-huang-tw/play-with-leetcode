@@ -7,22 +7,24 @@ class Solution {
     // case 2
     // nums = [], lower = -2, upper = 99
     // Output: ["-2->99"]
+    
+    // TC: O(n), SC: (1)
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> res = new ArrayList<>();
         
         int numsLen = nums.length;
         
-        int prev = lower - 1;   // -3
-        for (int i = 0; i < numsLen + 1; i++) { // iterate one more for lastNumber & upper
+        // merge 4 steps as one for-loop
+        int prev = lower - 1;   // prev = -3
+        
+        // iterate one more for 1. lastNumber & upper case  2. nums is empty.
+        for (int i = 0; i < numsLen + 1; i++) { 
             int currNum = (i < numsLen) ? nums[i] : upper + 1; // upper=100
             if (currNum > prev + 1) {
-                res.add(formatRange(prev + 1, currNum - 1));
+                res.add(formatRange(prev + 1, currNum - 1));  // if nums is empty then -2 -> 99
             }
-            
             prev = currNum;
         }
-        
-        // last one
         
         /*
         if (numsLen == 0) {
@@ -42,14 +44,13 @@ class Solution {
                 res.add(formatRange(currNum + 1, nextNum - 1));
             }
         }
-        */
-        
-        // int lastNum = nums[numsLen -1];
-        // if (upper > lastNum) {
-        //     res.add(formatRange(lastNum + 1,upper));
-        // }
 
-        
+        int lastNum = nums[numsLen -1];
+        if (upper > lastNum) {
+            res.add(formatRange(lastNum + 1,upper));
+        }
+        */
+
         return res;
     }
     
