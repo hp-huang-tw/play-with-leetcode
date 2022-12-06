@@ -2,6 +2,8 @@ class ProductOfNumbers {
     
     List<Integer> prefixs;
     
+    // TC: O(1) for add & get
+    // SC: O(n)
     public ProductOfNumbers() {
         initNums();
     }
@@ -11,7 +13,6 @@ class ProductOfNumbers {
             add(1);
         }};
     }
-
 
     public void add(int num) {
         if (num > 0)
