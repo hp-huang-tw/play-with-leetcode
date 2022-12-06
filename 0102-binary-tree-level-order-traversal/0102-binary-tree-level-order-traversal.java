@@ -17,7 +17,7 @@ class Solution {
     // bfs: 
     // TC: O(n), SP: O(n/2) -> O(n)
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<List<Integer>> res = new ArrayList<>();
         
         Deque<TreeNode> q = new LinkedList<TreeNode>();
         q.add(root);
@@ -25,21 +25,21 @@ class Solution {
        
         while (!q.isEmpty()) {
             int qSize = q.size();
-             List<Integer> level = new ArrayList<Integer>();
+            List<Integer> nodes = new ArrayList<>();
             
             // get all node in the queue
             for (int i = 0; i < qSize; i++) {          
                 TreeNode node = q.pollFirst();
                 if (node != null) {
-                    level.add(node.val);
+                    nodes.add(node.val);
 
                     q.add(node.left);
                     q.add(node.right);
                 } 
             }
             
-            if (!level.isEmpty()) {
-                res.add(level);
+            if (!nodes.isEmpty()) {
+                res.add(nodes);
             }
         }
         
