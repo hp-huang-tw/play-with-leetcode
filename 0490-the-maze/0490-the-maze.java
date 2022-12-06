@@ -23,6 +23,7 @@ class Solution {
         if (sX == des[0] && sY == des[1]) return true;
         
         visited[sX][sY] = true;
+        
         for (int[] dir : dirs) {
             int x = sX + dir[0];
             int y = sY + dir[1];
@@ -30,7 +31,7 @@ class Solution {
                 x += dir[0];
                 y += dir[1];
             }
-            if(dfs(new int[]{ x - dir[0], y - dir[1]}, des)){
+            if (dfs(new int[]{ x - dir[0], y - dir[1]}, des)){
                 return true;
             }
         }
