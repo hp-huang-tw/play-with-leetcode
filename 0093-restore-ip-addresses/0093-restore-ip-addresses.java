@@ -6,6 +6,7 @@ class Solution {
         
     // "25525511135"
     // ["255.255.11.135","255.255.111.35"]
+    // TC: O(2^12)
     public List<String> restoreIpAddresses(String s) {
         this.s = s;
         
