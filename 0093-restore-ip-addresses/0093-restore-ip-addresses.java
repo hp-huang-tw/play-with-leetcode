@@ -19,10 +19,11 @@ class Solution {
         return res;
     }
     
-    // "25525511135"
-    //i.^
-    //j  ^
-    //. 25.    
+    //     "25525511135"
+    //i.    ^
+    //j      ^
+    //s     2
+    //path. 2.    
     private void dfs(int i, int dots, String path) {
         if (dots >= 4) {
             if (i == s.length()) {
@@ -32,9 +33,10 @@ class Solution {
         }
         
         for (int j = i + 1; j <= s.length(); j++) {
-            String numStr = s.substring(i, j);
+            String numStr = s.substring(i, j);  // 2
             if (isValid(numStr)) {
-                dfs(j, dots + 1, path + numStr + '.');  
+                String nextPath = path + numStr + '.';
+                dfs(j, dots + 1, nextPath);  
            }
         }
     }
