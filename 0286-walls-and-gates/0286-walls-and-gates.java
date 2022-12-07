@@ -1,26 +1,7 @@
 class Solution {
     
-    // Set<Pair<Integer, Integer>> visited;
-    
-    boolean[][] visited;
-    
-    // Queue<Pair<Integer, Integer>> q;
-    Queue<int[]> q;
-    
     private static final int[][] dirs = {{-1,0}, {1,0}, {0,-1}, {0,1}};
     
-    private int[][] rooms;
-    
-    private int rLen;
-    
-    private int cLen;
-    
-    // private static final List<int[]> DIRECTIONS = Arrays.asList(
-    //     new int[] { 1,  0},
-    //     new int[] {-1,  0},
-    //     new int[] { 0,  1},
-    //     new int[] { 0, -1}
-    // );
     private static final int EMPTY = Integer.MAX_VALUE;
     
     private static final int GATE = 0;
@@ -56,7 +37,17 @@ class Solution {
     }
     
     /*
+        Queue<int[]> q;
+    // Set<Pair<Integer, Integer>> visited;
     
+    boolean[][] visited;
+    
+    // Queue<Pair<Integer, Integer>> q;
+    private int[][] rooms;
+    
+    private int rLen;
+    
+    private int cLen;
     public void wallsAndGates(int[][] rooms) {
         this.rooms = rooms;
         this.rLen = rooms.length;
