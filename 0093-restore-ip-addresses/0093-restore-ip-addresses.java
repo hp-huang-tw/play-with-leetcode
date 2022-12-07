@@ -19,11 +19,12 @@ class Solution {
         return res;
     }
     
-    //     "25525511135"
-    //i.    ^
-    //j      ^
-    //s     2
-    //path. 2.    
+    //      "25525511135"         "25525511135"      "25525511135"           "25525511135"  
+    // i.    ^                      ^                   ^                        ^
+    // j      ^                      ^                   ^                        ^
+    // s     2                      5                   5                     2
+    // path. 2.                     2.5                 2.5.5                 2.5.5.2.
+    // dots  1                      2                   3                     4
     private void dfs(int i, int dots, String path) {
         if (dots >= 4) {
             if (i == s.length()) {
