@@ -15,7 +15,7 @@ class Solution {
         }
         
         // Create output in correct format
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         for (int i = left; i < left + k; i++) {
             result.add(arr[i]);
         }
