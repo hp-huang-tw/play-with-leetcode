@@ -1,7 +1,7 @@
 class Solution {
     
-    // similar with course II.
-    
+    // similar with course schedule II.
+    // https://leetcode.com/problems/course-schedule-ii/
     private static final int NOT_VISITED = 0;
     private static final int VISITING = 1;
     private static final int VISITED = 2;
