@@ -5,11 +5,12 @@ class Solution {
     }
     
     
-    // result[i]=prefixs[i-1]*postfixs[i+1].  TC: O(n). SC:(n)
+    // result[i]=prefixs[i-1]*postfixs[i+1].
     // nums       [1, 2, 3, 4]
     // prefixs     1  2. 6. 24
     // postfixs.   24 24 12  4       
     // result      24 12  8  6
+    // TC: O(n). SC:(n)
     private int[] prefixPostfix(int[] nums) {
         int nLen = nums.length;
         int[] prefixs = new int[nLen];
