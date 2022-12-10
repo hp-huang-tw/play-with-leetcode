@@ -12,21 +12,28 @@ class Solution {
         return quickSelectHelper(0, len -1);
     }
     
-    // 1 3 2 6 5 4
-    // l         r
-    //          pivot
-    private int quickSelectHelper(int l, int r) {
-        int pivot = nums[r], p = l;
-        for (int i = l; i < r; i++) {
-            if (nums[i] <= pivot) {
+    // 3  2  1  6  5  4          // 3 2 1  6 5 4
+    // lp             r                   |
+    // p->                                 p.  pv   --> 3 2 1 | 4 5 6
+    // i
+    //              pivot                 
+    private int quickSelectHelper(int leftMost, int rightMost) {
+        int pivot = nums[rightMost], p = leftMost;
+        for (int i = leftMost; i < rightMost; i++) {
+            if (nums[i] <= pivot) { // swap itself handle right portion
                 swap(p, i);
+                //System.out.format("swap(%d, %d)\n", p, i);
+               // System.out.println(Arrays.toString(nums));
                 p++;
             }
         }
-        swap(p, r);
         
-        if (p > indexK) return quickSelectHelper(l, p - 1);
-        else if (p < indexK) return quickSelectHelper(p + 1, r);
+        swap(p, rightMost); // swap pivot with p of value
+       // System.out.format("swap(%d, %d)\n", p, rightMost);
+        //System.out.println(Arrays.toString(nums));
+        
+        if (p > indexK) return quickSelectHelper(leftMost, p - 1);
+        else if (p < indexK) return quickSelectHelper(p + 1, rightMost);
         else return nums[p];
     }
     
