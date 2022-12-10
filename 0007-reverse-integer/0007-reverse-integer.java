@@ -28,37 +28,9 @@ class Solution {
         }
         
         long num = Long.valueOf(sb.toString());
-        if (num > Integer.MAX_VALUE) return 0;
+        if (num > Integer.MAX_VALUE) {
+            return 0;
+        }
         return (int) (isNegative ? -1 * num : num);
     }
-    
-//     public int reversexx(int x) {
-//         if (x == 0) {
-//             return 0;
-//         }
-        
-//         final String s = String.valueOf(x);
-        
-//         char[] charArr = s.toCharArray();
-        
-//         char[] newCharArr = {};
-//         int endIndic= charArr.length - 1;
-//         int counter = 0;
-//         boolean isNegative = false;
-//         for (int i = endIndic; i > -1 ; i--) {
-//             if (i == endIndic && charArr[i] == '0') {
-//                 continue;
-//             }
-            
-//             if (i == 0 && charArr[i] == '-') {
-//                 isNegative = true;
-//                 continue;
-//             }
-//             newCharArr[counter] = charArr[i];
-//             counter++;
-//         }
-        
-//         int resultValue = Integer.parseInt(new String(newCharArr));
-//         return isNegative ? resultValue * -1 : resultValue;
-//     }
 }
