@@ -17,19 +17,24 @@ class Solution {
     // p->                                 p.  pv   --> 3 2 1 | 4 5 6
     // i
     //              pivot                 
+    // avg. O(n). worst case O(n^2)
     private int quickSelectHelper(int leftMost, int rightMost) {
         int pivot = nums[rightMost], p = leftMost;
         for (int i = leftMost; i < rightMost; i++) {
-            if (nums[i] <= pivot) { // swap itself handle right portion
+            if (nums[i] <= pivot) { // swap itself and move p. otherwise keep p at i 
                 swap(p, i);
                 //System.out.format("swap(%d, %d)\n", p, i);
-               // System.out.println(Arrays.toString(nums));
+                //System.out.println(Arrays.toString(nums));
                 p++;
-            }
+            } 
+            /*                  next i will swap 5 & 3
+                [3,2,1,5,3,4]        ----->     [3,2,1,3,5,4] 
+                      p/i       
+            */
         }
         
         swap(p, rightMost); // swap pivot with p of value
-       // System.out.format("swap(%d, %d)\n", p, rightMost);
+        // System.out.format("swap(%d, %d)\n", p, rightMost);
         //System.out.println(Arrays.toString(nums));
         
         if (p > indexK) return quickSelectHelper(leftMost, p - 1);
