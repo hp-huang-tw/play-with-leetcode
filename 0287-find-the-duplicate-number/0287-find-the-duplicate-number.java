@@ -1,10 +1,24 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        return sort(nums);
+        return set(nums);
     }
     
+    // TC: O(n), SC: O(n)
+    private int set(int[] nums) {
+        Set<Integer> visited = new HashSet<>();
+        
+        for (int num : nums) {
+            if (visited.contains(num)) {
+                return num;
+            }
+            
+            visited.add(num);
+        }
+        
+        return -1;
+    }
     
-    // nLog(n)
+    // TC: nLog(n), SC: log(n)
     private int sort(int[] nums) {
         Arrays.sort(nums);
         
