@@ -15,7 +15,7 @@ class Solution {
     3 3 3   2, 0 (6-8, 0-2) | 2, 1 (6-8, 3-5) | 2, 2 (6-8, 6-8)
     */
     
-    // TC: O(n^2), SC: O(n)
+    // TC: O(n^2), SC: O(n^2)
     public boolean isValidSudoku(char[][] board) {
         int n = 9;
         
