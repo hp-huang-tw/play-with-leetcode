@@ -9,6 +9,7 @@ class Solution {
     // Floyd's Cycle Detection 
     // 0 , 1  2  3  4       covert to linked list
     // 1   3. 4. 2. 2       ------>  (1@0) -> (3@1) -> (2@3) -> (4@2) -> (2@4)
+    // O(n), O(1) without modifying nums
     private int floydCylcleDetection(int[] nums) {
         int slow = 0, fast = 0;
         
