@@ -13,8 +13,8 @@ class Solution {
         size = new int[n]; // size of component
         
         for (int i = 0; i < n; i++) {
-            parent[i] = i;
-            size[i] = 1;
+            parent[i] = i;  // init self as its parent
+            size[i] = 1;    // init size as 1
         }
         
         int componentCount = n;
