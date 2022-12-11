@@ -11,8 +11,8 @@ class Solution {
     }
     
     // x^n -> (x^2)^(n/2)
-    // n = even. x^5 = (x^2) * (x^2) * x
-    // n = odd. x^4 =(x^2) * (x^2)
+    // n = odd. x^5 = (x^2) * (x^2) * x
+    // n = even. x^4 =(x^2) * (x^2)
     // TC: O(log(n)), SC: O(1)
     public double fastPow(double x, int n) {
         if (n == 0) return 1;
