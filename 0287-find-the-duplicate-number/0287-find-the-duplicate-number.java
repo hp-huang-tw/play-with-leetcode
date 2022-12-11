@@ -1,6 +1,30 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        return set(nums);
+        return negativeMarking(nums);
+    }
+    
+    
+    // TC: o(n), SC: o(1)
+    // similar problem:
+    // https://leetcode.com/problems/first-missing-positive/
+    private int negativeMarking(int[] nums) {
+        int duplicate = -1;
+        
+        for (int i = 0; i < nums.length; i++) { 
+            int cur = Math.abs(nums[i]);
+            if (nums[cur] < 0) {    
+                duplicate = cur;    // nums[cur] already flipped, so it's duplicate
+                break;
+            }
+            nums[cur] *= -1;
+        }
+        
+        // Restore numbers
+        // for (int i = 0; i < nums.length; i++) {
+        //      nums[i] = Math.abs(nums[i]);
+        // }
+        
+        return duplicate;
     }
     
     // TC: O(n), SC: O(n)
