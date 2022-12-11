@@ -1,8 +1,33 @@
 class Solution {
+    
+    // similar problem: https://leetcode.com/problems/linked-list-cycle-ii/solution/#approach-2-floyds-tortoise-and-hare-accepted
     public int findDuplicate(int[] nums) {
-        return negativeMarking(nums);
+        return floydCylcleDetection(nums);
     }
     
+    
+    // Floyd's Cycle Detection 
+    // 0 , 1  2  3  4       covert to linked list
+    // 1   3. 4. 2. 2       ------>  (1@0) -> (3@1) -> (2@3) -> (4@2) -> (2@4)
+    private int floydCylcleDetection(int[] nums) {
+        int slow = 0, fast = 0;
+        
+        while (true) {
+            slow = nums[slow];          // move one step
+            fast = nums[nums[fast]];    // move two step
+            if (nums[slow] == nums[fast])
+                break;
+        }
+        
+        int slow2 = 0;
+        while (nums[slow] != nums[slow2]) {
+            slow = nums[slow];          // move one step
+            slow2 = nums[slow2];
+            // if (nums[slow] == nums[slow2])
+            //     return nums[slow];
+        }
+        return nums[slow];
+    }
     
     // TC: o(n), SC: o(1)
     // similar problem:
