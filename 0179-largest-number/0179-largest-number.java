@@ -22,10 +22,6 @@ class Solution {
             return "0";
         }
         
-        // String res = "";
-        // for (String s : numsStr) {
-        //     res += s;
-        // }
         return String.join("", numsStr);
     }
     
