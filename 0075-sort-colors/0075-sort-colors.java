@@ -10,6 +10,8 @@ class Solution {
     // [2,0,2,1,1,0]                [0,0,2,1,1,2]                   [0,0,2,1,1,2]                   [0,0,2,1,1,2]       [0,0,1,1,2,2]
     //  l         r     ----->       l         r       ----->          l       r          ----->       l     r             l   r  
     //  i                              i                                 i                               i                   i
+    
+    // TC: O(n). SC: O(1)
     public void sortColors(int[] nums) {
         int l = 0, r = nums.length - 1, i = 0;
         
