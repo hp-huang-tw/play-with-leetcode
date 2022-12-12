@@ -1,5 +1,8 @@
 class Solution {
     
+    /*
+        Dutch National Flag problem solution.
+    */
     // 0: read
     // 1: white
     // 2: blue
