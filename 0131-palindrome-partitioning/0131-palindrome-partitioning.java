@@ -22,7 +22,7 @@ class Solution {
         return res;
     }
     
-     // TC: O(2^n) * O(n)
+     // TC: O(2^n) * O(n). SC: o(n)
     private void dfs(String s, int start, List<String> vaildPartitions) {
         int strLen = s.length();
         if (start >= strLen) {
