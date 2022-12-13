@@ -38,7 +38,6 @@ class Solution {
                 vaildPartitions.remove(vaildPartitions.size() - 1);     //.   b
             }
         }
-        
     }
     
     private boolean isPalindrone(String p) {
