@@ -45,7 +45,7 @@ class Solution {
             }
             
             if (!lists.isEmpty()) {
-                res.add(new ArrayList<>(lists));
+                res.add(lists);
             }
             
         }
