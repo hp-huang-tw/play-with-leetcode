@@ -1,33 +1,6 @@
 class MinStack {
-
-    // -2 0 -3
     
-    // -2 0
-    
-    // 0 -2 -3 
-    
-    // decreasing stack (using deque)
-    // 5 4 3 2 1
-    
-    // -1 -2 0 -3
-    
-    // -1 -2
-    /*
-    while (n > stack.peak()) 
-        a = stack.pop();
-        // another list?
-        [-1, -2]
-        [0, -1, -2]
-        n.push()
-    
-    */
-    // 0    -2   -3
-    
-    // first     last
-    
-    // [x, min]
-    // Stack<int[]> stack; 
-    
+    // [x, min]    
     private Stack<int[]> stack;
     
     public MinStack() {
