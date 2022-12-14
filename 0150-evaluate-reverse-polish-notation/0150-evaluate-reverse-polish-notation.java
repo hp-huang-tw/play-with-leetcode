@@ -10,15 +10,13 @@ class Solution {
     // 3 3          *
     // 9                     3 * 3 = 9
     
-    private static final Map<String, BiFunction<Integer, Integer, Integer>> OPTS = new HashMap<>();
-    
-    static {
-        OPTS.put("+", (a, b) -> a + b);
-        OPTS.put("-", (a, b) -> a - b);
-        OPTS.put("*", (a, b) -> a * b);
-        OPTS.put("/", (a, b) -> a / b);
+    private static final Map<String, BiFunction<Integer, Integer, Integer>> OPTS = new HashMap<>(){{
+        put("+", (a, b) -> a + b);
+        put("-", (a, b) -> a - b);
+        put("*", (a, b) -> a * b);
+        put("/", (a, b) -> a / b);
         
-    }
+    }};
     
     // TC: O(n). SC: O(n)
     public int evalRPN(String[] tokens) {
