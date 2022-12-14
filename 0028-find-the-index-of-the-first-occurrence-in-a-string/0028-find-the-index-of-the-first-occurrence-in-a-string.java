@@ -18,17 +18,13 @@ class Solution {
         // i               i               i
         // sad          // sad             sad
         // j                j                j <---- exactly matched
-        int count = 0;
         for (int start = 0; start < len1; start++) { 
             for (int j = 0; j < len2; j++) {   
                 if (start + j > len1 - 1) break;
-                
-                if (needle.charAt(j) != haystack.charAt(start + j)) break;                
+                if (needle.charAt(j) != haystack.charAt(start + j)) break;               
                 if (j == (len2 -1)) {
                     return start;
                 }
-                
-
             }
         }
         
