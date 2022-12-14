@@ -29,11 +29,11 @@ public class NestedIterator implements Iterator<Integer> {
 
     // Recursively unpacks a nested list in DFS order.
     private void flattenList(List<NestedInteger> nestedList) {
-        for (NestedInteger nestedInteger : nestedList) {
-            if (nestedInteger.isInteger()) {
-                integers.add(nestedInteger.getInteger());
+        for (NestedInteger nested : nestedList) {
+            if (nested.isInteger()) {
+                integers.add(nested.getInteger());
             } else {
-                flattenList(nestedInteger.getList());
+                flattenList(nested.getList());
             }
         }
     }
