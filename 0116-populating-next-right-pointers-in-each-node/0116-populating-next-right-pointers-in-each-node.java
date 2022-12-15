@@ -38,8 +38,7 @@ class Solution {
                 if (node.right != null) q.add(node.right);
                 
                 if (i < size - 1) {
-                    Node right = q.peek();
-                    node.next = right;
+                    node.next = q.peek();
                 }   
             }
         }
