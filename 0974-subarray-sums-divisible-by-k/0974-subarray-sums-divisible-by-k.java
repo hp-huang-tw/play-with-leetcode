@@ -11,7 +11,7 @@ class Solution {
                                                     [];[4],[4,5],[4,5,0];[4,5,0,-2]
         [4,5,0,-2,-3]    v  9       4       3+3     {0,1}{4,4}{2,1}     
                                                     [];[4],[4,5],[4,5,0],[4,5,0,-2,-3];[4,5,0,-2]
-        [4,5,0,-2,-3,1]     10      0
+        [4,5,0,-2,-3,1]     10      0       6+1
     */
     /*   
     result
@@ -21,11 +21,27 @@ class Solution {
                [0], 
             --------------------
                     [-2, -3]
-                [0, -2, -3], 
-                    
+                [0, -2, -3],      
             [5, 0, -2, -3], 
+        --------------------
+        [4,5,0,-2,-3,1]
     */
-    public int subarraysDivByK(int[] nums, int k) {
+    
+     public int subarraysDivByK(int[] nums, int k) {
+         int[] preMods = new int[k];
+         preMods[0] = 1;
+        
+        int sum = 0, res = 0, mod = 0;
+        for (int n : nums) {
+            sum += n;
+            mod = (sum % k) < 0 ? (sum % k) + k: sum % k;
+            res += preMods[mod];
+            preMods[mod]++;
+        }
+        return res;
+    }
+    
+    public int hashMap(int[] nums, int k) {
         HashMap<Integer, Integer> preMods = new HashMap<>();
         preMods.put(0, 1);
         
