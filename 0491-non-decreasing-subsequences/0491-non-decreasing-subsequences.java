@@ -6,7 +6,7 @@ class Solution {
     
     public List<List<Integer>> findSubsequences(int[] nums) {
         this.nums = nums;
-        dfs(0, new ArrayList<>());
+        dfs(0, new LinkedList<>());
         return new ArrayList<>(res);
     }
     
