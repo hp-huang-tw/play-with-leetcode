@@ -1,24 +1,36 @@
 class Solution {
-    int[] arr;
-    HashSet<List<Integer>> hashSet = new HashSet<>();
+        
+    int[] nums;
+    
+    HashSet<List<Integer>> res = new HashSet<>();
+    
     public List<List<Integer>> findSubsequences(int[] nums) {
-        arr = nums;
-        List<Integer> arrayList = new ArrayList<>();
-        recursion(arrayList,0);
-        List<List<Integer>> result = new ArrayList<>(hashSet);
-        return result;
+        this.nums = nums;
+        dfs(0, new ArrayList<>());
+        return new ArrayList<>(res);
     }
-
-    public void recursion(List<Integer> arrayList, int index){
-        if(arrayList.size()>=2) hashSet.add(new ArrayList(arrayList));
-
-        for(int i = index;i<arr.length;i++){
-            if(arrayList.size() == 0 || arr[i]>= arrayList.get(arrayList.size()-1)){
-                arrayList.add(arr[i]);
-                recursion(arrayList,i+1);
-                arrayList.remove(arrayList.size()-1);
+    
+    /*
+    // [4,6,7,7]
+    //         4         6.     7   7
+        /.     |  \     /  \    |   x
+        6      7   7   7    7   7
+      / | \   / \     / \
+     7  7    7       7
+     |
+     7
+    */ 
+    private void dfs(int i, List<Integer> subsequences) {
+        if (subsequences.size() > 1) {
+            res.add(new ArrayList<>(subsequences));
+        }
+        
+        for (int j = i; j < nums.length; j++) {
+            if (subsequences.size() == 0 || nums[j] >= subsequences.get(subsequences.size() - 1)) {     
+                subsequences.add(nums[j]);
+                dfs(j + 1, subsequences);
+                subsequences.remove(subsequences.size() - 1);
             }
         }
-
     }
 }
