@@ -38,6 +38,8 @@ class Solution {
     
     int k;
         
+    // TC: O(n^2)
+    // SC: O(n)
     public int longestSubstring(String s, int k) {
         this.s = s;
         this.k = k;
