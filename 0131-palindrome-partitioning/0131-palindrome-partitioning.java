@@ -1,56 +1,57 @@
 class Solution {
     
-    String s;
+    /*
+    // input: "aabc"
+                a            aa     aab(x)     aabc (x)
+               / \          /  \       
+             a    ab(x)    b   bc(x)     
+            / \           /
+           b  bc(x)      c
+          /
+         c 
+       output: [["a","a","b","c"], ["aa","b","c"]]
+    */
     
-    int strLen;
+    String s;
     
     List<List<String>> res = new ArrayList<>();
     
-    // backtracking -> dfs -> recursive
-    /*
-                    aab
-                 /   |    \
-                a.   aa     abb x
-              /      |          
-            a        b
-           /       
-         b
-    */
-   
-    public List<List<String>> partition(String s) {    
-        dfs(s, 0, new ArrayList<>());  
+    
+    // TC: O(2^n * n), n = the lenght of s
+    // SC: O(n)
+    public List<List<String>> partition(String s) {
+        this.s = s;
+        dfs(0, new ArrayList<>());
         return res;
     }
     
-     // TC: O(2^n) * O(n). SC: o(n)
-    private void dfs(String s, int start, List<String> vaildPartitions) {
+    private void dfs(int i, List<String> validPartitions) {
         int strLen = s.length();
-        if (start >= strLen) {
-            res.add(new ArrayList<>(vaildPartitions));   // deep copy
+        if (i == strLen) {
+            res.add(new ArrayList<>(validPartitions));
             return;
         }
         
-        for (int j = start; j < strLen; j++) {                          //      a -> aa -> aab
-            String partition = s.substring(start, j + 1);               //     /      |
-            if (isPalindrone(partition)) {                              //.   |       |
-                vaildPartitions.add(partition);                         //    |       |
-                dfs(s, j + 1, vaildPartitions);                         //    a       b           
-                vaildPartitions.remove(vaildPartitions.size() - 1);     //.   b
+        for (int j = i + 1; j <= strLen; j++) {
+            String partitions = s.substring(i, j);
+            if (isPalindrome(partitions)) {
+                validPartitions.add(partitions);
+                dfs(j, validPartitions);
+                validPartitions.remove(validPartitions.size() - 1);
             }
         }
     }
     
-    private boolean isPalindrone(String p) {
-        int l = 0, r = p.length() - 1;
+    private boolean isPalindrome(String str) {
+        int l = 0, r = str.length() - 1;
         
         while (l < r) {
-            if (p.charAt(l) != p.charAt(r)) {
+            if (str.charAt(l) != str.charAt(r)) {
                 return false;
             }
             l++;
             r--;
         }
-        
         return true;
     }
 }
