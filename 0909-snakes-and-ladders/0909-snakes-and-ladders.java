@@ -40,8 +40,22 @@ class Solution {
     /// the most important part
     private int[] getPosition(int label, int[][] board) {        
         int n = board.length;
-        int row = n -  1 - (label - 1)/n;
+        int row = n - 1 - (label - 1)/n;
         int col = ((label - 1)/n % 2) == 0 ? (label - 1) % n : n - 1 - (label - 1) % n;
         return new int[]{ row, col };
     }
+    
+    /*
+    n = 6
+                 0  1. 2. 3. 4. 5        (label - 1)/n = x
+    0          [36,35,34,33,32,31]             5
+    1          ...................             4
+    2          ...................             3
+    3          ...................             2
+    4          [12,11,10,09,08,07]             1
+    5          [01,02,03,04,05,06]             0 <- n-x-1 
+    
+     odd col:  (label - 1) % n
+     even col: n - 1 - (label - 1) % n 
+    */
 }
