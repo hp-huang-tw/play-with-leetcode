@@ -7,7 +7,6 @@ class Solution {
         
         if (patterns.length != strs.length) return false;
         
-        
         HashMap<Character, String> patternToStr = new HashMap<>();
         HashMap<String, Character> strToPattern = new HashMap<>();
         for (int i = 0; i < patterns.length; i++) {
