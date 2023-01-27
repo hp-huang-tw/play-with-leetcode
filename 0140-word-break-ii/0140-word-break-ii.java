@@ -1,5 +1,19 @@
 class Solution {
     
+//     List<String> res = new ArrayList<>();
+//     public List<String> wordBreak(String s, List<String> wordDict) {
+//         if (s.length > 0) return res;
+//         // for (String word : wordDict) {
+//         //     maxLen = Math.max(maxLen, word.length());
+//         //     minLen = Math.min(minLen, word.length());
+//         // }
+        
+//         // helper(0, new ArrayList<>());
+//         workBreak(subStr, wordDict);
+//         return res;
+//     }
+    
+    
     /*
     ["cat","cats","and","sand","dog"] maxLen = 4, minLen = 3
     "catsanddog"                "catsanddog"    
@@ -52,8 +66,37 @@ class Solution {
             minLen = Math.min(minLen, word.length());
         }
         
-        helper(0, new ArrayList<>());
+        //helper(0, new ArrayList<>());
+        res = helper2(s, wordDict, 0, maxLen, minLen);
         return res;
+    }
+    
+    HashMap<Integer, List<String>> dp = new HashMap<>();
+    
+    private List<String> helper2 (String s, List<String> wordDict, int start, int max, int min) {
+        List<String> words = new ArrayList<>();
+        if(start == s.length()) {
+            words.add("");
+            return words;
+        }
+        
+        for (int i = start + min; i <= start + max && i <= s.length(); i++) {
+            String temp = s.substring(start, i);
+            if (wordDict.contains(temp)){
+                List<String> ll;
+                if (dp.containsKey(i)) {
+                    ll = dp.get(i);
+                } else {
+                    ll = helper2(s, wordDict, i, max, min);
+                }
+                for (String str : ll) {
+                    words.add(temp + (str.equals("") ? "" : " ") + str);
+                };
+            }
+            
+        }
+        dp.put(start, words);
+        return words;
     }
     
     private void helper(int i, List<String> strs) {
@@ -66,7 +109,7 @@ class Solution {
         for (int j = i + minLen; j < s.length() + 1; j++) {
             String subStr = s.substring(i, j);
             if (wordDict.contains(subStr)) {
-                strs.add(subStr);
+                strs.add(subStr);                           //["cats"
                 helper(j ,strs);    // -> repeated work.
                 strs.remove(strs.size() -1);
             }
