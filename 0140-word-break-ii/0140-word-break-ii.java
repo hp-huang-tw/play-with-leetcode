@@ -67,27 +67,27 @@ class Solution {
         }
         
         //helper(0, new ArrayList<>());
-        res = helper2(s, wordDict, 0, maxLen, minLen);
+        res = helper2(0);
         return res;
     }
     
     HashMap<Integer, List<String>> dp = new HashMap<>();
     
-    private List<String> helper2 (String s, List<String> wordDict, int start, int max, int min) {
+    private List<String> helper2 (int start) {
         List<String> words = new ArrayList<>();
         if(start == s.length()) {
             words.add("");
             return words;
         }
         
-        for (int i = start + min; i <= start + max && i <= s.length(); i++) {
+        for (int i = start + minLen; i <= start + maxLen && i <= s.length(); i++) {
             String temp = s.substring(start, i);
             if (wordDict.contains(temp)){
                 List<String> ll;
                 if (dp.containsKey(i)) {
                     ll = dp.get(i);
                 } else {
-                    ll = helper2(s, wordDict, i, max, min);
+                    ll = helper2(i);
                 }
                 for (String str : ll) {
                     words.add(temp + (str.equals("") ? "" : " ") + str);
