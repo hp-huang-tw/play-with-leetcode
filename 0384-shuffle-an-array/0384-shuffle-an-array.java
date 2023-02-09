@@ -1,6 +1,5 @@
 class Solution {
-
-    // Fisher-Yates Algorithm
+    
     int[] nums;
     
     int[] original;
@@ -18,20 +17,21 @@ class Solution {
     }
     
     public int[] shuffle() {
-        for (int i = 0; i < nums.length; i++) {
-            swap(nums, i, randomRange(i, nums.length));
+        int numsLen = nums.length;
+        for (int i = 0; i < numsLen; i++) {
+            swap(nums, i, random(i, numsLen - 1));
         }
         return nums;
     }
     
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
+    private int random(int i, int j) {
+        return i + rand.nextInt(j - i + 1);
     }
     
-    private int randomRange(int min, int max) {
-        return rand.nextInt(max - min) + min;
+    private void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
 
