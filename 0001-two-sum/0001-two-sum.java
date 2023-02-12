@@ -1,34 +1,18 @@
 class Solution {
+    // nums=[2,7,11,15], target=9
+    // res=[0, 1]
+    // O(n), O(n)
     public int[] twoSum(int[] nums, int target) {
-        // Hash Table
-        // O(N), O(N)
-        Map<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> complement = new HashMap<>();
         
-        for(int i=0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement) && map.get(complement) !=i) {
-                return new int[] { map.get(complement), i};
+        for (int i = 0; i < nums.length; i++) {
+            int n = nums[i];
+            if (complement.containsKey(n)) {    // 2, 7
+                return new int[] { complement.get(n), i}; // [0, 1]
             }
-            map.put(nums[i], i);
+            complement.put(target - nums[i], i); //7:0
         }
-        return null;
+        
+        return new int[]{};
     }
-    
-    /*
-        // Brute Force
-        O(N^2)
-        O(1)
-        int[] result=new int[2];
-
-        for(int i=0; i < nums.length; i++) {
-            for(int j=i+1; j < nums.length; j++) {
-                if (nums[i]+nums[j]==target) {
-                    result[0]=i;
-                    result[1]=j;
-                    break;
-                }
-            }
-        }
-        return result;
-    */
 }
