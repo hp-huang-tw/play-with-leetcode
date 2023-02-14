@@ -19,7 +19,6 @@ class Solution {
             if (nums[r] > nums[l]) {
                 nums[l + 1] = nums[r];
                 l++;
-                
             } else {
                 r++;
             }
