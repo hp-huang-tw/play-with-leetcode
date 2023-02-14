@@ -22,6 +22,8 @@ class Solution {
                  l 
                    l
                r.  l.  return l
+        [0]
+         l.r
     */
     public int removeElement(int[] nums, int val) {
         int l = 0, r = nums.length;
