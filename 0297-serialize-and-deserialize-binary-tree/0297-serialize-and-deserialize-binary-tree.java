@@ -8,22 +8,24 @@
  * }
  */
 public class Codec {
-    
+
     // DFS: pre-order traverse
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         List<String> res = new ArrayList<>();
         serializeHelper(root, res);
-        String ans = String.join(",", res);
-        //System.out.println(ans);
-        return ans;
+        return String.join(",", res);
     }
     
+    /*
     // input: TreeNode(1) 
     //               |----- TreeNode(2)
+                                |--------
+                                |--------
     //               |----- TreeNode(3)
     //                             |----- TreeNode(4)
     //                             |----- TreeNode(5)
+    */
     // string: 1, 2, null, null, 3, 4, null, null, 5, null, null
     private void serializeHelper(TreeNode root, List<String> res) {
         if (root == null) {
@@ -36,33 +38,37 @@ public class Codec {
         serializeHelper(root.right, res);
     }
 
+    /*
     // Decodes your encoded data to tree.
-    // input: 1, 2, null, null, 3, 4, null, null, 5, null, null
-    // output: 
+    // input: 1, 2, 3, null, null, 4, 5
+    
+    // string: 1, 2, null, null, 3,  4,   null, null, 5, null, null
+    // output: r. l1.  l2.  r2.  r1 r1_l1 r1_l2
     //      TreeNode(1) 
     //               |----- TreeNode(2)
     //               |----- TreeNode(3)
     //                             |----- TreeNode(4)
     //                             |----- TreeNode(5)
+    */
     public TreeNode deserialize(String data) {
         //System.out.println(data);
-        List<String> dataList = Arrays.asList(data.split(","));
-        return deserializeHelper(dataList);
+        List<String> list = Arrays.asList(data.split(","));
+        return deserializeHelper(list);
     }
     
-    int index = 0;
+    int i = 0;
     private TreeNode deserializeHelper(List<String> dataList) {
-        String currData = dataList.get(index);
-        if (currData.equals("null")) {
-            index++;
+        if (dataList.get(i).equals("null")) {
+            i++;
             return null;
         }
-        TreeNode root = new TreeNode(Integer.valueOf(currData));
-        index++;
-        root.left = deserializeHelper(dataList);
-        root.right = deserializeHelper(dataList);
         
-        return root;
+        TreeNode node = new TreeNode(Integer.valueOf(dataList.get(i)));
+        i++;
+        node.left = deserializeHelper(dataList);
+        node.right = deserializeHelper(dataList);
+        
+        return node;
     }
 }
 
