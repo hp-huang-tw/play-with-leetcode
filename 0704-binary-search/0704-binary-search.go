@@ -3,7 +3,7 @@ func search(nums []int, target int) int {
 	r := len(nums) - 1
 
 	for l <= r {
-        mid := (l + r)/2
+        mid := l + (r - l)/2
 		num := nums[mid]
 		if target == num {
 			return mid
