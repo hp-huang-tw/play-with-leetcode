@@ -9,6 +9,7 @@
  * }
  */
 class Solution {
+    // O(n+m), O(1)
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;
