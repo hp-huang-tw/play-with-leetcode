@@ -17,9 +17,8 @@ class Solution {
     
     private void floodFillHelper(int[][] image, int r, int c, int originalColor, int newColor) {
         // Check if the current element is out of bounds or already changed
-        if (r < 0 || r >= image.length || c < 0 || c >= image[0].length || image[r][c] != originalColor) {
+        if (r < 0 || r >= image.length || c < 0 || c >= image[0].length || image[r][c] != originalColor) 
             return;
-        }
         
         // Set the current element to the new color
         image[r][c] = newColor;
