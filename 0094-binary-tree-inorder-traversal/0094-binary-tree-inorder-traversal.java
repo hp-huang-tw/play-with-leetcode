@@ -21,7 +21,7 @@ class Solution {
         TreeNode curr = root;
 
         while (curr != null || !stack.isEmpty()) {
-                    // Move to the leftmost node while pushing nodes onto the stack
+            // Move to the leftmost node while pushing nodes onto the stack
             while (curr != null) {
                 stack.push(curr);
                 curr = curr.left;
@@ -31,7 +31,7 @@ class Solution {
             curr = stack.pop();
             res.add(curr.val);
 
-                    // Move to the leftmost node while pushing nodes onto the stack
+            // Move to the leftmost node while pushing nodes onto the stack
             curr = curr.right;
 
         }
