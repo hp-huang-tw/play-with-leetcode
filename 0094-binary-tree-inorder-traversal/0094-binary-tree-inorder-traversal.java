@@ -35,6 +35,6 @@ class Solution {
             curr = curr.right;
 
         }
-    return res;   
+        return res;   
     }
 }
