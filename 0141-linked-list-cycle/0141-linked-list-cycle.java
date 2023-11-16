@@ -11,21 +11,16 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        Set<ListNode> visited = new HashSet<>();
+        if (head == null || head.next == null) return false;
         
-        while (head != null) {
-            // If the node is already in the HashSet, there is a cycle
-            if (visited.contains(head)) {
-                return true;
-            }
-            
-            // Add the current node to the HashSet
-            visited.add(head);
-            // Move to the next node
-            head = head.next;
+        ListNode slow = head, fast = head.next;
+        
+        while (slow != fast) {
+            if (fast == null || fast.next == null) return false;
+            slow = slow.next;
+            fast = fast.next.next;
         }
         
-        // No cycle found
-        return false;
+        return true;
     }
 }
