@@ -24,12 +24,12 @@ class MyQueue {
     
     // O(1), O(1)
     public int pop() {
-        return s1.pop();
+        return s1.isEmpty() ? -1 : s1.pop();
     }
     
     // O(1), O(1)
     public int peek() {
-        return s1.peek();
+        return s1.isEmpty() ? -1 : s1.peek();
     }
     
     // O(1), O(1)
