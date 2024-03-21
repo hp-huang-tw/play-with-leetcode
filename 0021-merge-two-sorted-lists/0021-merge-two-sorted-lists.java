@@ -13,7 +13,7 @@ class Solution {
         if (list1 == null) return list2;
         if (list2 == null) return list1;
 
-        ListNode mergedList = new ListNode();
+        ListNode mergedList;
         if (list1.val < list2.val) {
             mergedList = list1;
             mergedList.next = mergeTwoLists(list1.next, list2);
