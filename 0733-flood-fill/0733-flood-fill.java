@@ -10,19 +10,19 @@ class Solution {
         q.offer(new int[]{sr, sc});
         
         while (!q.isEmpty()) {
-            int[] pos = q.poll();
-            int r = pos[0];
-            int c = pos[1];
-            
-            if (r < 0 || c < 0 || r >= image.length || c >= image[0].length || image[r][c] != originalColor) {
-                continue;
-            }
-            
+            int[] currentPosition = q.poll();
+            int r = currentPosition[0];
+            int c = currentPosition[1];
             
             image[r][c] = color;
 
             for (int[] dir : directions) {
-                q.offer(new int[]{r + dir[0], c + dir[1]});
+                int newRow = r + dir[0];
+                int newCol = c + dir[1];
+                if (newRow >= 0 && newCol >= 0 && newRow < image.length && newCol < image[0].length && image[newRow][newCol] == originalColor) {
+                q.offer(new int[]{newRow, newCol});
+            }
+                
             }
         }
         
