@@ -1,44 +1,59 @@
 class MyQueue {
     
-    private Stack<Integer> inputStack;
+    Stack<Integer> s1;  
     
-    private Stack<Integer> outputStack;
+    Stack<Integer> s2;
 
     public MyQueue() {
-        inputStack = new Stack();
-        outputStack = new Stack();
+        this.s1 = new Stack<>();
+        this.s2 = new Stack<>();
+        
     }
     
-    // O(1), O(1)
     public void push(int x) {
-       inputStack.push(x);
-    }
-    
-    // O(1), O(1)
-    public int pop() {
-        transferElements();
-        return outputStack.pop();
-    }
-    
-    // O(1), O(1)
-    public int peek() {
-        transferElements();
-        return outputStack.peek();
-    }
-    
-    private void transferElements() {
-        if (outputStack.isEmpty()) {
-            while (!inputStack.isEmpty()) {
-                outputStack.push(inputStack.pop());
-            }
+        
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
+        }
+        
+        s1.push(x);
+        
+        while (!s2.isEmpty()) {
+            s1.push(s2.pop());
         }
     }
     
-    // O(1), O(1)
+    public int pop() {
+        return s1.pop();
+    }
+    
+    public int peek() {
+        return s1.peek();
+        
+    }
+    
     public boolean empty() {
-        return inputStack.isEmpty() && outputStack.isEmpty();
+        return s1.isEmpty();
     }
 }
+
+/*
+      1
+
+
+      2     1 
+      
+      1
+      2
+      
+            2
+      3     1
+   
+   
+      1
+      2
+      3
+*/
 
 /**
  * Your MyQueue object will be instantiated and called as such:
