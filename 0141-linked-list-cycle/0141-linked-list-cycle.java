@@ -11,20 +11,16 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) {
-            return false;
-        } // No cycle if the list is empty or has only one node
+        if (head == null || head.next == null) return false;
         
         ListNode slow = head, fast = head.next;
         
         while (slow != fast) {
-            if (fast == null || fast.next == null) {
+            if (fast.next == null || fast.next.next == null)
                 return false;
-            } // No cycle if the fast pointer reaches the end
             slow = slow.next;
             fast = fast.next.next;
         }
-        
-        return true; // There is a cycle if the slow and fast pointers meet
+        return true;
     }
 }
