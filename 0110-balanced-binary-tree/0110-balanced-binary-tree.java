@@ -17,12 +17,12 @@ class Solution {
     public boolean isBalanced(TreeNode root) {
         if (root == null) return true;
         
-        return Math.abs(height(root.left) - height(root.right)) < 2
+        return Math.abs(getHeight(root.left) - getHeight(root.right)) < 2
             && isBalanced(root.left) && isBalanced(root.right);
     }
     
-    private int height(TreeNode root) {
+    private int getHeight(TreeNode root) {
         if (root == null) return -1;
-        return 1 + Math.max(height(root.left), height(root.right));
+        return 1 + Math.max(getHeight(root.left), getHeight(root.right));
     }
 }
