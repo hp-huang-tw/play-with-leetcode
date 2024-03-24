@@ -9,18 +9,23 @@
  *     }
  * }
  */
-public class Solution {
+class Solution {
     public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) return false;
-        
-        ListNode slow = head, fast = head.next;
-        
-        while (slow != fast) {
-            if (fast.next == null || fast.next.next == null)
-                return false;
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                return true; // Cycle detected
+            }
             slow = slow.next;
             fast = fast.next.next;
         }
-        return true;
+
+        return false; // No cycle detected
     }
 }
