@@ -29,7 +29,7 @@ class MyQueue {
     }
     
     public boolean empty() {
-        return (stackPush.isEmpty() && stackPop.isEmpty());
+        return stackPush.isEmpty() && stackPop.isEmpty();
     }
     
     private void transferElements() {
