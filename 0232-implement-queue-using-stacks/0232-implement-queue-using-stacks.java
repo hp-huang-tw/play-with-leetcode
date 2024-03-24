@@ -1,17 +1,16 @@
 class MyQueue {
     
-    Stack<Integer> s1;  
+    private Stack<Integer> s1;  
     
-    Stack<Integer> s2;
+    private Stack<Integer> s2;
 
     public MyQueue() {
-        this.s1 = new Stack<>();
-        this.s2 = new Stack<>();
+        s1 = new Stack<>();
+        s2 = new Stack<>();
         
     }
     
     public void push(int x) {
-        
         while (!s1.isEmpty()) {
             s2.push(s1.pop());
         }
