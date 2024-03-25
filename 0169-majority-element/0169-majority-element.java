@@ -4,6 +4,6 @@ class Solution {
         
         int n = nums.length;
         
-        return nums[ (int) n/2 ];
+        return nums[n/2];
     }
 }
