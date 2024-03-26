@@ -1,27 +1,19 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        String s1 = handleString(s);
-        String t1 = handleString(t);
-        
-        return s1.equals(t1);
+        return processString(s).equals(processString(t));
     }
     
-    private String handleString(String s) {
-        Deque<Character> deque = new LinkedList<>();
+    private String processString(String s) {
+        Stack<Character> stack = new Stack<>();
         
         for (char ch : s.toCharArray()) {
-            if (ch == '#') {
-                deque.pollLast();
-            } else {
-                deque.offer(ch);
+            if (ch != '#') {   
+                stack.push(ch);
+            } else if (!stack.isEmpty()){
+                stack.pop();
             }
         }
         
-        StringBuilder sb = new StringBuilder();
-        while (!deque.isEmpty()) {
-            sb.append(deque.poll());
-        }
-        
-        return sb.toString();
+        return String.valueOf(stack);
     }
 }
