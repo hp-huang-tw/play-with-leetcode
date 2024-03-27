@@ -15,8 +15,7 @@
  */
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        return coverter(nums, 0, nums.length - 1);
-        
+        return coverter(nums, 0, nums.length - 1);  
     }
     
     private TreeNode coverter(int[] nums, int l, int r) {
