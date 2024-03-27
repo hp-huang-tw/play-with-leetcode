@@ -15,16 +15,16 @@
  */
 class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        return coverter(nums, 0, nums.length - 1);  
+        return constructBST(nums, 0, nums.length - 1);  
     }
     
-    private TreeNode coverter(int[] nums, int l, int r) {
+    private TreeNode constructBST(int[] nums, int l, int r) {
         if (l > r) return null;
         
         int mid = l + (r - l) / 2;
         TreeNode node = new TreeNode(nums[mid]);
-        node.left = coverter(nums, l, mid - 1);
-        node.right = coverter(nums, mid + 1, r);
+        node.left = constructBST(nums, l, mid - 1);
+        node.right = constructBST(nums, mid + 1, r);
         return node;
 
     }
