@@ -48,3 +48,10 @@ class Solution {
         return distances;
     }
 }
+
+/*
+distance = 0                        1                                         2 
+
+[(x1, y1), (x2, y2), (x3, y3) …] | [ ((x1, y1)-l,r,u,d), (x2, y2)LRUD, …..] | …….
+
+*/
