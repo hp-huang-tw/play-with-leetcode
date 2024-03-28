@@ -9,7 +9,7 @@ class PointsComparator implements Comparator<int[]> {
     
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
-        PriorityQueue<int []> pq = new PriorityQueue<>(new PointsComparator());
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new PointsComparator());
         
         for (int[] point : points) {
             pq.offer(point);
